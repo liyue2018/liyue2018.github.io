@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fqa9kgi7fmj30fo09ymxh.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fqa9u3s8dlj30hc080jrn.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fqaa339ub5j30gu078jrp.jpg">
-<meta property="og:updated_time" content="2018-04-12T15:35:45.973Z">
+<meta property="og:updated_time" content="2018-04-12T15:37:45.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="box-shadow实现的投影效果">
 <meta name="twitter:description" content="利用box-shadow来实现不同的投影，达到真实的效果。可是如何只在元素的一侧或两侧设置投影以及设置不规则的投影呢？ box-shadowbox-shadow 属性向边框添加一个或多个阴影。可以在这里感受一下 语法： box-shadow: h-shadow v-shadow blur spread color inset; 1234div  &amp;#123;    box-shadow: 3px">
@@ -254,6 +254,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
           </a>
         </li>
       
@@ -415,7 +425,7 @@
 <p>语法：</p>
 <p>box-shadow: h-shadow v-shadow blur spread color inset;</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">  &#123;</span><br><span class="line">    box-shadow: 3px 4px 4px rgba(0,0,0,.4);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="单侧投影的解决方案来自-box-shadow-鲜为人知的第四个长度参数。"><a href="#单侧投影的解决方案来自-box-shadow-鲜为人知的第四个长度参数。" class="headerlink" title="单侧投影的解决方案来自 box-shadow 鲜为人知的第四个长度参数。"></a>单侧投影的解决方案来自 box-shadow 鲜为人知的第四个长度参数。</h3><p>它排在模糊半径参数之后，称作扩张半径。这个参数会根据你指定的值去扩大或(当指定负值时)缩小投影的尺寸。举例来说，一个 -5px 的扩张半径会把投影的宽度和高度各减少 10px。</p>
+<h3 id="单侧投影"><a href="#单侧投影" class="headerlink" title="单侧投影"></a>单侧投影</h3><p>其解决方案来自 box-shadow 鲜为人知的第四个长度参数。它排在模糊半径参数之后，称作扩张半径。这个参数会根据你指定的值去扩大或(当指定负值时)缩小投影的尺寸。举例来说，一个 -5px 的扩张半径会把投影的宽度和高度各减少 10px。</p>
 <p>从逻辑上来说，如果我们应用一个负的扩张半径，而它的值刚好等于模糊半径，那么投影的尺寸就会与投影所属元素的尺寸完全一致。除非用偏移 量(前两个长度参数)来移动它，我们将完全看不见任何投影。因此，如果给投影应用一个正的垂直偏移量，我们就会在元素的底部看到一道投影，而 元素的另外三侧是没有投影的:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//只有底部有投影</span><br><span class="line">div</span><br><span class="line">  &#123;</span><br><span class="line">    box-shadow: 0 3px 4px -4px rgba(0,0,0,.4);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fqa9kgi7fmj30fo09ymxh.jpg" alt="单侧投影效果"></p>
@@ -625,7 +635,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#box-shadow"><span class="nav-number">1.</span> <span class="nav-text">box-shadow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单侧投影的解决方案来自-box-shadow-鲜为人知的第四个长度参数。"><span class="nav-number">1.1.</span> <span class="nav-text">单侧投影的解决方案来自 box-shadow 鲜为人知的第四个长度参数。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#邻边投影"><span class="nav-number">1.2.</span> <span class="nav-text">邻边投影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双侧投影"><span class="nav-number">1.3.</span> <span class="nav-text">双侧投影</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#box-shadow"><span class="nav-number">1.</span> <span class="nav-text">box-shadow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单侧投影"><span class="nav-number">1.1.</span> <span class="nav-text">单侧投影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#邻边投影"><span class="nav-number">1.2.</span> <span class="nav-text">邻边投影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双侧投影"><span class="nav-number">1.3.</span> <span class="nav-text">双侧投影</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -669,7 +679,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共1,022字</span>
+  <span class="post-count">博客全站共932字</span>
 </div>
 
 
