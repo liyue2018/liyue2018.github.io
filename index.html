@@ -121,7 +121,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -210,7 +210,27 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
           </a>
         </li>
       
@@ -220,7 +240,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -230,7 +250,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -296,9 +316,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T16:27:49+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-11T16:27:49+08:00">
                 2018-04-11
               </time>
             
@@ -327,9 +347,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计</span>
+                  <span class="post-meta-item-text">Words count in article</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   0
                 </span>
               
@@ -343,9 +363,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长</span>
+                  <span class="post-meta-item-text">Reading time</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   1
                 </span>
               
@@ -425,7 +445,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/11/我的第一份博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/11/如何利用css3实现图片菱形裁剪/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liyue">
@@ -444,7 +464,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/11/我的第一份博客/" itemprop="url">我的第一份博客</a></h1>
+                <a class="post-title-link" href="/2018/04/11/如何利用css3实现图片菱形裁剪/" itemprop="url">如何利用css3实现图片菱形裁剪</a></h1>
         
 
         <div class="post-meta">
@@ -454,9 +474,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T15:52:40+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-11T15:52:40+08:00">
                 2018-04-11
               </time>
             
@@ -466,6 +486,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css3/" itemprop="url" rel="index">
+                    <span itemprop="name">css3</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -485,10 +527,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计</span>
+                  <span class="post-meta-item-text">Words count in article</span>
                 
-                <span title="字数统计">
-                  0
+                <span title="Words count in article">
+                  226
                 </span>
               
 
@@ -501,9 +543,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长</span>
+                  <span class="post-meta-item-text">Reading time</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   1
                 </span>
               
@@ -527,7 +569,19 @@
       
         
           
-            
+            <p>就像我的<a href="https://liyue2018.github.io/" target="_blank" rel="noopener">博客</a>头像这样,利用纯css3，把它裁剪为菱形吧！当然利用图像处理软件，也可以很快完成这样的效果。但是当你想要修改图片风格时，就没有那么便利了。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fqa6obgjdaj307i05mmxi.jpg" alt="菱形图片"></p>
+<h2 id="第一种实现方式-rotate"><a href="#第一种实现方式-rotate" class="headerlink" title="第一种实现方式 rotate()"></a>第一种实现方式 rotate()</h2><h3 id="图片外面需要用一个div包裹，利用rotate-实现。"><a href="#图片外面需要用一个div包裹，利用rotate-实现。" class="headerlink" title="图片外面需要用一个div包裹，利用rotate()实现。"></a>图片外面需要用一个div包裹，利用rotate()实现。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);</span><br></pre></td></tr></table></figure>
+<h2 id="第二种实现方式-clip-path"><a href="#第二种实现方式-clip-path" class="headerlink" title="第二种实现方式 clip-path"></a>第二种实现方式 clip-path</h2><h3 id="clip-path"><a href="#clip-path" class="headerlink" title="clip-path"></a>clip-path</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);</span><br></pre></td></tr></table></figure>
+<h3 id="如果我们希望图片在鼠标悬停时平滑地扩展为完整的面积，可以结合-hover伪类来实现。"><a href="#如果我们希望图片在鼠标悬停时平滑地扩展为完整的面积，可以结合-hover伪类来实现。" class="headerlink" title="如果我们希望图片在鼠标悬停时平滑地扩展为完整的面积，可以结合:hover伪类来实现。"></a>如果我们希望图片在鼠标悬停时平滑地扩展为完整的面积，可以结合:hover伪类来实现。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); </span><br><span class="line">   transition: 1s clip-path;</span><br><span class="line">&#125;</span><br><span class="line">img:hover &#123;</span><br><span class="line">   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
           
         
       
@@ -612,9 +666,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T15:30:03+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-11T15:30:03+08:00">
                 2018-04-11
               </time>
             
@@ -643,9 +697,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计</span>
+                  <span class="post-meta-item-text">Words count in article</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   78
                 </span>
               
@@ -659,9 +713,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长</span>
+                  <span class="post-meta-item-text">Reading time</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   1
                 </span>
               
@@ -784,13 +838,31 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">日志</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
           
 
         </nav>
@@ -857,7 +929,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共78字</span>
+  <span class="post-count">博客全站共304字</span>
 </div>
 
 
