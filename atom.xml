@@ -35,31 +35,6 @@
   </entry>
   
   <entry>
-    <title>如何利用css3实现图片菱形裁剪</title>
-    <link href="http://yoursite.com/2018/04/11/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8css3%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E8%8F%B1%E5%BD%A2%E8%A3%81%E5%89%AA/"/>
-    <id>http://yoursite.com/2018/04/11/如何利用css3实现图片菱形裁剪/</id>
-    <published>2018-04-11T07:52:40.000Z</published>
-    <updated>2018-04-12T22:21:01.290Z</updated>
-    
-    <content type="html"><![CDATA[<p>就像我的<a href="https://liyue2018.github.io/" target="_blank" rel="noopener">博客</a>头像这样,利用纯css3，把它裁剪为菱形吧！当然利用图像处理软件，也可以很快完成这样的效果。但是当你想要修改图片风格时，就没有那么便利了。</p><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fqa6obgjdaj307i05mmxi.jpg" alt="菱形图片"></p><h2 id="第一种实现方式-rotate"><a href="#第一种实现方式-rotate" class="headerlink" title="第一种实现方式 rotate()"></a>第一种实现方式 rotate()</h2><h3 id="rotate"><a href="#rotate" class="headerlink" title="rotate()"></a>rotate()</h3><p>图片外面需要用一个div包裹，利用rotate()实现。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"pic"</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"/images/author.jpg"</span> alt=<span class="string">"..."</span> /&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">// css </span><br><span class="line"></span><br><span class="line">.pic &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    transform: rotate(45deg);</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">.pic &gt; img &#123;</span><br><span class="line">    max-width: 100%;</span><br><span class="line">    transform: rotate(-45deg) scale(1.42);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这种方法只对正方形有效，并且需要添加额外的HTML标签，不够简洁。 </p><p>如果用 scale() 变形样式来把这个图片放大，实际上会更加合理，原因如下：<br>1.我们希望图片的尺寸属性保留 100% 这个值，这样当浏览器不支持变形样式时仍然可以得到一个合理的布局。<br>2.通过 scale() 变形样式来缩放图片时，是以它的中心点进行缩放的 (除非我们额外指定了 transform-origin 样式)。</p><h2 id="第二种实现方式-clip-path"><a href="#第二种实现方式-clip-path" class="headerlink" title="第二种实现方式 clip-path"></a>第二种实现方式 clip-path</h2><h3 id="clip-path"><a href="#clip-path" class="headerlink" title="clip-path"></a>clip-path</h3><p>首先让我们简单了解一下clip-path,更具体的可以点这里<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path#Browser_compatibility" target="_blank" rel="noopener">clip-path</a>。</p><p>clip-path属性可以创建一个只有元素的部分区域可以显示的剪切区域。区域内的部分显示，区域外的隐藏。clip-path属性代替了现在已经弃用的剪切 clip属性。</p><p>在这里我们将使用polygon()函数来实现菱形。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);</span><br></pre></td></tr></table></figure><h3 id="结合-hover伪类实现动画效果"><a href="#结合-hover伪类实现动画效果" class="headerlink" title="结合:hover伪类实现动画效果"></a>结合:hover伪类实现动画效果</h3><p>如果我们希望图片在鼠标悬停时平滑地扩展为完整的面积，可以结合:hover伪类来实现。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); </span><br><span class="line">   transition: 1s clip-path;</span><br><span class="line">&#125;</span><br><span class="line">img:hover &#123;</span><br><span class="line">   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;就像我的&lt;a href=&quot;https://liyue2018.github.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;博客&lt;/a&gt;头像这样,利用纯css3，把它裁剪为菱形吧！当然利用图像处理软件，也可以很快完成这样的效果。但是当你想要修改图片风
-      
-    
-    </summary>
-    
-      <category term="css3" scheme="http://yoursite.com/categories/css3/"/>
-    
-    
-      <category term="css3, clip-path" scheme="http://yoursite.com/tags/css3-clip-path/"/>
-    
-  </entry>
-  
-  <entry>
     <title>box-shadow实现的投影效果</title>
     <link href="http://yoursite.com/2018/04/11/box-shadow%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%8A%95%E5%BD%B1%E6%95%88%E6%9E%9C/"/>
     <id>http://yoursite.com/2018/04/11/box-shadow实现的投影效果/</id>
@@ -82,6 +57,31 @@
     
     
       <category term="css3, box-shadow" scheme="http://yoursite.com/tags/css3-box-shadow/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何利用css3实现图片菱形裁剪</title>
+    <link href="http://yoursite.com/2018/04/11/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8css3%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E8%8F%B1%E5%BD%A2%E8%A3%81%E5%89%AA/"/>
+    <id>http://yoursite.com/2018/04/11/如何利用css3实现图片菱形裁剪/</id>
+    <published>2018-04-11T07:52:40.000Z</published>
+    <updated>2018-04-12T22:21:01.290Z</updated>
+    
+    <content type="html"><![CDATA[<p>就像我的<a href="https://liyue2018.github.io/" target="_blank" rel="noopener">博客</a>头像这样,利用纯css3，把它裁剪为菱形吧！当然利用图像处理软件，也可以很快完成这样的效果。但是当你想要修改图片风格时，就没有那么便利了。</p><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fqa6obgjdaj307i05mmxi.jpg" alt="菱形图片"></p><h2 id="第一种实现方式-rotate"><a href="#第一种实现方式-rotate" class="headerlink" title="第一种实现方式 rotate()"></a>第一种实现方式 rotate()</h2><h3 id="rotate"><a href="#rotate" class="headerlink" title="rotate()"></a>rotate()</h3><p>图片外面需要用一个div包裹，利用rotate()实现。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"pic"</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"/images/author.jpg"</span> alt=<span class="string">"..."</span> /&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">// css </span><br><span class="line"></span><br><span class="line">.pic &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    transform: rotate(45deg);</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">.pic &gt; img &#123;</span><br><span class="line">    max-width: 100%;</span><br><span class="line">    transform: rotate(-45deg) scale(1.42);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这种方法只对正方形有效，并且需要添加额外的HTML标签，不够简洁。 </p><p>如果用 scale() 变形样式来把这个图片放大，实际上会更加合理，原因如下：<br>1.我们希望图片的尺寸属性保留 100% 这个值，这样当浏览器不支持变形样式时仍然可以得到一个合理的布局。<br>2.通过 scale() 变形样式来缩放图片时，是以它的中心点进行缩放的 (除非我们额外指定了 transform-origin 样式)。</p><h2 id="第二种实现方式-clip-path"><a href="#第二种实现方式-clip-path" class="headerlink" title="第二种实现方式 clip-path"></a>第二种实现方式 clip-path</h2><h3 id="clip-path"><a href="#clip-path" class="headerlink" title="clip-path"></a>clip-path</h3><p>首先让我们简单了解一下clip-path,更具体的可以点这里<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path#Browser_compatibility" target="_blank" rel="noopener">clip-path</a>。</p><p>clip-path属性可以创建一个只有元素的部分区域可以显示的剪切区域。区域内的部分显示，区域外的隐藏。clip-path属性代替了现在已经弃用的剪切 clip属性。</p><p>在这里我们将使用polygon()函数来实现菱形。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);</span><br></pre></td></tr></table></figure><h3 id="结合-hover伪类实现动画效果"><a href="#结合-hover伪类实现动画效果" class="headerlink" title="结合:hover伪类实现动画效果"></a>结合:hover伪类实现动画效果</h3><p>如果我们希望图片在鼠标悬停时平滑地扩展为完整的面积，可以结合:hover伪类来实现。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); </span><br><span class="line">   transition: 1s clip-path;</span><br><span class="line">&#125;</span><br><span class="line">img:hover &#123;</span><br><span class="line">   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;就像我的&lt;a href=&quot;https://liyue2018.github.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;博客&lt;/a&gt;头像这样,利用纯css3，把它裁剪为菱形吧！当然利用图像处理软件，也可以很快完成这样的效果。但是当你想要修改图片风
+      
+    
+    </summary>
+    
+      <category term="css3" scheme="http://yoursite.com/categories/css3/"/>
+    
+    
+      <category term="css3, clip-path" scheme="http://yoursite.com/tags/css3-clip-path/"/>
     
   </entry>
   
