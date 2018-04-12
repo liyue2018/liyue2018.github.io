@@ -1859,7 +1859,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffadf7;
+  background: #05ab81;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3037,6 +3037,14 @@ body {
 .menu {
   overflow: hidden;
   margin-top: 0;
+}
+.feed-link a {
+  display: block;
+  color: #fc6423;
+  border: 1px solid #fc6423;
+  border-radius: 4px;
+  margin: 20px 0;
+  width: 40px;
 }
 .post {
   margin: 60px 0;
