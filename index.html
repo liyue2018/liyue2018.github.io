@@ -372,7 +372,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  391
+                  451
                 </span>
               
 
@@ -416,13 +416,15 @@
 <p>box-shadow: h-shadow v-shadow blur spread color inset;</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">  &#123;</span><br><span class="line">    box-shadow: 3px 4px 4px rgba(0,0,0,.4);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="单侧投影的解决方案来自-box-shadow-鲜为人知的第四个长度参数。"><a href="#单侧投影的解决方案来自-box-shadow-鲜为人知的第四个长度参数。" class="headerlink" title="单侧投影的解决方案来自 box-shadow 鲜为人知的第四个长度参数。"></a>单侧投影的解决方案来自 box-shadow 鲜为人知的第四个长度参数。</h3><p>它排在模糊半径参数之后，称作扩张半径。这个参数会根据你指定的值去扩大或(当指定负值时)缩小投影的尺寸。举例来说，一个 -5px 的扩张半径会把投影的宽度和高度各减少 10px。</p>
-<p>从逻辑上来说，如果我们应用一个负的扩张半径，而它的值刚好等于模糊半径，那么投影的尺寸就会与投影所属元素的尺寸完全一致。除非用偏移 量(前两个长度参数)来移动它，我们将完全看不见任何投影。因此，如果给投影应用一个正的垂直偏移量，我们就会在元素的底部看到一道投影，而 元素的另外三侧是没有投影的，这正是我们一直苦苦追寻的效果:</p>
+<p>从逻辑上来说，如果我们应用一个负的扩张半径，而它的值刚好等于模糊半径，那么投影的尺寸就会与投影所属元素的尺寸完全一致。除非用偏移 量(前两个长度参数)来移动它，我们将完全看不见任何投影。因此，如果给投影应用一个正的垂直偏移量，我们就会在元素的底部看到一道投影，而 元素的另外三侧是没有投影的:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//只有底部有投影</span><br><span class="line">div</span><br><span class="line">  &#123;</span><br><span class="line">    box-shadow: 0 3px 4px -4px rgba(0,0,0,.4);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fqa9kgi7fmj30fo09ymxh.jpg" alt="单侧投影效果"></p>
+<h3 id="邻边投影"><a href="#邻边投影" class="headerlink" title="邻边投影"></a>邻边投影</h3><p>需要指定两个偏移量，并且扩张半径是模糊半径相反值的一半：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//邻边有投影</span><br><span class="line">div</span><br><span class="line">  &#123;</span><br><span class="line">    box-shadow: 3px 3px 4px -2px rgba(0,0,0,.4);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fqa9u3s8dlj30hc080jrn.jpg" alt="邻边有投影"></p>
+<h3 id="双侧投影"><a href="#双侧投影" class="headerlink" title="双侧投影"></a>双侧投影</h3><p>“单侧投影”利用两次：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//双侧有投影</span><br><span class="line">div</span><br><span class="line">  &#123;</span><br><span class="line">    box-shadow: 3px 0 4px -4px rgba(0,0,0,.4), </span><br><span class="line">               -3px 0 4px -4px rgba(0,0,0,.4);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fqaa339ub5j30gu078jrp.jpg" alt="双侧投影"></p>
 
           
         
@@ -794,7 +796,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共860字</span>
+  <span class="post-count">博客全站共920字</span>
 </div>
 
 
