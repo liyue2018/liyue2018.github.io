@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="css3," />
+  <meta name="keywords" content="css3,box-shadow," />
 
 
 
@@ -97,7 +97,7 @@
 
 
 <meta name="description" content="利用box-shadow来实现不同的投影，达到真实的效果。可是如何只在元素的一侧或两侧设置投影以及设置不规则的投影呢？ box-shadowbox-shadow 属性向边框添加一个或多个阴影。可以在这里感受一下 语法： box-shadow: h-shadow v-shadow blur spread color inset; 1234div  &amp;#123;    box-shadow: 3px">
-<meta name="keywords" content="css3">
+<meta name="keywords" content="css3,box-shadow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="box-shadow实现的投影效果">
 <meta property="og:url" content="http://yoursite.com/2018/04/11/box-shadow实现的投影效果/index.html">
@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fqa9kgi7fmj30fo09ymxh.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fqa9u3s8dlj30hc080jrn.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fqaa339ub5j30gu078jrp.jpg">
-<meta property="og:updated_time" content="2018-04-13T02:30:04.107Z">
+<meta property="og:updated_time" content="2018-04-13T07:10:27.027Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="box-shadow实现的投影效果">
 <meta name="twitter:description" content="利用box-shadow来实现不同的投影，达到真实的效果。可是如何只在元素的一侧或两侧设置投影以及设置不规则的投影呢？ box-shadowbox-shadow 属性向边框添加一个或多个阴影。可以在这里感受一下 语法： box-shadow: h-shadow v-shadow blur spread color inset; 1234div  &amp;#123;    box-shadow: 3px">
@@ -415,6 +415,7 @@
 <p>语法：</p>
 <p>box-shadow: h-shadow v-shadow blur spread color inset;</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">  &#123;</span><br><span class="line">    box-shadow: 3px 4px 4px rgba(0,0,0,.4);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="单侧投影"><a href="#单侧投影" class="headerlink" title="单侧投影"></a>单侧投影</h3><p>其解决方案来自 box-shadow 鲜为人知的第四个长度参数。它排在模糊半径参数之后，称作扩张半径。这个参数会根据你指定的值去扩大或(当指定负值时)缩小投影的尺寸。举例来说，一个 -5px 的扩张半径会把投影的宽度和高度各减少 10px。</p>
 <p>从逻辑上来说，如果我们应用一个负的扩张半径，而它的值刚好等于模糊半径，那么投影的尺寸就会与投影所属元素的尺寸完全一致。除非用偏移 量(前两个长度参数)来移动它，我们将完全看不见任何投影。因此，如果给投影应用一个正的垂直偏移量，我们就会在元素的底部看到一道投影，而 元素的另外三侧是没有投影的:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//只有底部有投影</span><br><span class="line">div</span><br><span class="line">  &#123;</span><br><span class="line">    box-shadow: 0 3px 4px -4px rgba(0,0,0,.4);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
@@ -460,6 +461,8 @@
         <div class="post-tags">
           
             <a href="/tags/css3/" rel="tag"><i class="fa fa-tag"></i> css3</a>
+          
+            <a href="/tags/box-shadow/" rel="tag"><i class="fa fa-tag"></i> box-shadow</a>
           
         </div>
       
@@ -572,7 +575,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -583,7 +586,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -669,7 +672,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共1.0k字</span>
+  <span class="post-count">博客全站共4.0k字</span>
 </div>
 
 
