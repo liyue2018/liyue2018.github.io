@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-13T13:23:56.172Z</updated>
+  <updated>2018-04-13T15:15:12.468Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css3实现切角效果</title>
+    <link href="http://yoursite.com/2018/04/13/css3%E5%AE%9E%E7%8E%B0%E5%88%87%E8%A7%92%E6%95%88%E6%9E%9C/"/>
+    <id>http://yoursite.com/2018/04/13/css3实现切角效果/</id>
+    <published>2018-04-13T15:04:32.000Z</published>
+    <updated>2018-04-13T15:15:12.468Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="切角效果"><a href="#切角效果" class="headerlink" title="切角效果"></a>切角效果</h2><p><img src="" alt="切角效果"></p><a id="more"></a><h2 id="三种实现方式"><a href="#三种实现方式" class="headerlink" title="三种实现方式"></a>三种实现方式</h2><h3 id="使用背景图片"><a href="#使用背景图片" class="headerlink" title="使用背景图片"></a>使用背景图片</h3><p>使用三角形盖住元素的顶角（背景是纯色），或者使用一张或多张已经切过角的图片来作为整个元素的背景。</p><p>使用图片同样可以达到效果，只是难以维护，而且增加了网页的加载时间。</p><h3 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;切角效果&quot;&gt;&lt;a href=&quot;#切角效果&quot; class=&quot;headerlink&quot; title=&quot;切角效果&quot;&gt;&lt;/a&gt;切角效果&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;&quot; alt=&quot;切角效果&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="css3" scheme="http://yoursite.com/categories/css3/"/>
+    
+    
+      <category term="css3" scheme="http://yoursite.com/tags/css3/"/>
+    
+  </entry>
   
   <entry>
     <title>糖果按钮</title>
@@ -69,16 +91,16 @@
     <link href="http://yoursite.com/2018/04/13/angular-cli%E7%9A%84%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5/"/>
     <id>http://yoursite.com/2018/04/13/angular-cli的使用攻略/</id>
     <published>2018-04-13T03:49:29.000Z</published>
-    <updated>2018-04-13T07:10:15.668Z</updated>
+    <updated>2018-04-14T11:51:28.989Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="angular-cli"><a href="#angular-cli" class="headerlink" title="angular-cli"></a><a href="https://cli.angular.io/" target="_blank" rel="noopener">angular-cli</a></h2><p>angular-cli 是一套脚手架工具</p><h3 id="安装-node-js"><a href="#安装-node-js" class="headerlink" title="安装 node.js"></a>安装 <a href="http://nodejs.cn/" target="_blank" rel="noopener">node.js</a></h3><p>也可以安装 npm 淘宝镜像</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure><h3 id="安装angular-cli"><a href="#安装angular-cli" class="headerlink" title="安装angular-cli"></a>安装angular-cli</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g angular-cli</span><br></pre></td></tr></table></figure><a id="more"></a><p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fqawm7qb9vj30oi0bwdjd.jpg" alt="angular-cli"><br><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fqawmrorn9j30pe0ou0vn.jpg" alt="angular-cli"></p><h3 id="angular-cli-版本升级"><a href="#angular-cli-版本升级" class="headerlink" title="angular-cli 版本升级"></a>angular-cli 版本升级</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install npm -g</span><br></pre></td></tr></table></figure><h3 id="angular-cli-命令行工具"><a href="#angular-cli-命令行工具" class="headerlink" title="angular-cli 命令行工具"></a>angular-cli 命令行工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ng new xxxx //创建名为xxx的新项目</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="angular-cli"><a href="#angular-cli" class="headerlink" title="angular-cli"></a><a href="https://cli.angular.io/" target="_blank" rel="noopener">angular-cli</a></h2><p>angular-cli 是一套脚手架工具</p><h2 id="安装-node-js"><a href="#安装-node-js" class="headerlink" title="安装 node.js"></a>安装 <a href="http://nodejs.cn/" target="_blank" rel="noopener">node.js</a></h2><p>也可以安装 npm 淘宝镜像</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure><h2 id="安装angular-cli"><a href="#安装angular-cli" class="headerlink" title="安装angular-cli"></a>安装angular-cli</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cnpm install -g @angular/cli</span><br></pre></td></tr></table></figure><a id="more"></a><p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fqawm7qb9vj30oi0bwdjd.jpg" alt="angular-cli"><br><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fqawmrorn9j30pe0ou0vn.jpg" alt="angular-cli"></p><h3 id="angular-cli-版本升级"><a href="#angular-cli-版本升级" class="headerlink" title="angular-cli 版本升级"></a>angular-cli 版本升级</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install npm -g</span><br></pre></td></tr></table></figure><h2 id="angular-cli-命令行工具"><a href="#angular-cli-命令行工具" class="headerlink" title="angular-cli 命令行工具"></a>angular-cli 命令行工具</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ng new xxxx //创建名为xxx的新项目</span><br></pre></td></tr></table></figure><h2 id="在angular项目中加载jquery-bootstrap第三方库"><a href="#在angular项目中加载jquery-bootstrap第三方库" class="headerlink" title="在angular项目中加载jquery,bootstrap第三方库"></a>在angular项目中加载jquery,bootstrap第三方库</h2><h3 id="导入第三方库"><a href="#导入第三方库" class="headerlink" title="导入第三方库"></a>导入第三方库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install jquery --save-dev</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install @types/jquery --save-dev</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install bootstrap --save-dev</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install @types/bootstrap --save-dev</span><br></pre></td></tr></table></figure><p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fqcelyjyarj30qc0h8n15.jpg" alt=""></p><p>因为jquery和bootstrap并不是用typescript语言写的，typescript是不能用的，所以要利用@types，把jquery,和bootstrap的类型描述文件，引入到本地的库（Node-modules）里。</p><h3 id="修改配置文件-angular-cli-json"><a href="#修改配置文件-angular-cli-json" class="headerlink" title="修改配置文件 angular-cli.json"></a>修改配置文件 angular-cli.json</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"styles"</span>: [</span><br><span class="line">        <span class="string">"styles.css"</span>,</span><br><span class="line">        <span class="string">"../node_modules/bootstrap/dist/css/bootstrap.css"</span></span><br><span class="line">      ],</span><br><span class="line"><span class="string">"scripts"</span>: [</span><br><span class="line">        <span class="string">"../node_modules/jquery/dist/jquery.js"</span>,</span><br><span class="line">        <span class="string">"../node_modules/bootstrap/dist/js/bootstrap.js"</span></span><br><span class="line">      ]</span><br></pre></td></tr></table></figure><h3 id="修改配置文件后，需要重新启动程序"><a href="#修改配置文件后，需要重新启动程序" class="headerlink" title="修改配置文件后，需要重新启动程序"></a>修改配置文件后，需要重新启动程序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apachectl restart</span><br></pre></td></tr></table></figure><p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fqcemfsdzdj316q0e8q7v.jpg" alt=""></p><p>在本地4200端口可以查看效果。</p>]]></content>
     
     <summary type="html">
     
       &lt;h2 id=&quot;angular-cli&quot;&gt;&lt;a href=&quot;#angular-cli&quot; class=&quot;headerlink&quot; title=&quot;angular-cli&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://cli.angular.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;angular-cli&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;angular-cli 是一套脚手架工具&lt;/p&gt;
-&lt;h3 id=&quot;安装-node-js&quot;&gt;&lt;a href=&quot;#安装-node-js&quot; class=&quot;headerlink&quot; title=&quot;安装 node.js&quot;&gt;&lt;/a&gt;安装 &lt;a href=&quot;http://nodejs.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;node.js&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;也可以安装 npm 淘宝镜像&lt;/p&gt;
+&lt;h2 id=&quot;安装-node-js&quot;&gt;&lt;a href=&quot;#安装-node-js&quot; class=&quot;headerlink&quot; title=&quot;安装 node.js&quot;&gt;&lt;/a&gt;安装 &lt;a href=&quot;http://nodejs.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;node.js&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;也可以安装 npm 淘宝镜像&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ npm install -g cnpm --registry=https://registry.npm.taobao.org&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;安装angular-cli&quot;&gt;&lt;a href=&quot;#安装angular-cli&quot; class=&quot;headerlink&quot; title=&quot;安装angular-cli&quot;&gt;&lt;/a&gt;安装angular-cli&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ npm install -g angular-cli&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;安装angular-cli&quot;&gt;&lt;a href=&quot;#安装angular-cli&quot; class=&quot;headerlink&quot; title=&quot;安装angular-cli&quot;&gt;&lt;/a&gt;安装angular-cli&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo cnpm install -g @angular/cli&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -94,9 +116,9 @@
     <link href="http://yoursite.com/2018/04/13/angular2%E4%BB%8E%E5%AD%A6%E4%B9%A0%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%EF%BC%881%EF%BC%89/"/>
     <id>http://yoursite.com/2018/04/13/angular2从学习到项目实战（1）/</id>
     <published>2018-04-13T02:37:32.000Z</published>
-    <updated>2018-04-13T07:24:59.973Z</updated>
+    <updated>2018-04-14T05:29:59.443Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="angular2-是什么？"><a href="#angular2-是什么？" class="headerlink" title="angular2 是什么？"></a>angular2 是什么？</h2><p>Angular 是一个用 HTML 和 TypeScript 构建客户端应用的平台与框架。<a href="https://www.angular.cn/docs" target="_blank" rel="noopener">angular2</a></p><h2 id="angular2-的程序架构"><a href="#angular2-的程序架构" class="headerlink" title="angular2 的程序架构"></a>angular2 的程序架构</h2><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fqav9sm4fpj30v60gc40i.jpg" alt="angular2 的程序架构"><br><a id="more"></a></p><h2 id="angular2-的主要概念"><a href="#angular2-的主要概念" class="headerlink" title="angular2 的主要概念"></a>angular2 的主要概念</h2><h2 id="angular2"><a href="#angular2" class="headerlink" title="angular2"></a>angular2</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="angular2-是什么？"><a href="#angular2-是什么？" class="headerlink" title="angular2 是什么？"></a>angular2 是什么？</h2><p>Angular 是一个用 HTML 和 TypeScript 构建客户端应用的平台与框架。<a href="https://www.angular.cn/docs" target="_blank" rel="noopener">angular2</a></p><h2 id="angular2-的程序架构"><a href="#angular2-的程序架构" class="headerlink" title="angular2 的程序架构"></a>angular2 的程序架构</h2><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fqav9sm4fpj30v60gc40i.jpg" alt="angular2 的程序架构"><br><a id="more"></a></p><h2 id="angular2-的主要概念"><a href="#angular2-的主要概念" class="headerlink" title="angular2 的主要概念"></a>angular2 的主要概念</h2><p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fqc4finrw0j30ti0ew406.jpg" alt="组件的概念"></p><h2 id="angular2"><a href="#angular2" class="headerlink" title="angular2"></a>angular2</h2>]]></content>
     
     <summary type="html">
     
