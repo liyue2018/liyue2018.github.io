@@ -104,10 +104,14 @@
 <meta property="og:site_name" content="Cnly小姐的博客">
 <meta property="og:description" content="切角效果">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-13T15:15:12.468Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fqcnkdngkzj30gi06qjrl.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fqcly3fn4fj30eo07eaab.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fqcmlgviw0j30eo0km75b.jpg">
+<meta property="og:updated_time" content="2018-04-14T16:31:37.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css3实现切角效果">
 <meta name="twitter:description" content="切角效果">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fqcnkdngkzj30gi06qjrl.jpg">
 
 
 
@@ -380,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  92
+                  574
                 </span>
               
 
@@ -405,11 +409,26 @@
       
 
       
-        <h2 id="切角效果"><a href="#切角效果" class="headerlink" title="切角效果"></a>切角效果</h2><p><img src="" alt="切角效果"></p>
+        <h2 id="切角效果"><a href="#切角效果" class="headerlink" title="切角效果"></a>切角效果</h2><p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fqcnkdngkzj30gi06qjrl.jpg" alt="切角效果"></p>
 <a id="more"></a>
-<h2 id="三种实现方式"><a href="#三种实现方式" class="headerlink" title="三种实现方式"></a>三种实现方式</h2><h3 id="使用背景图片"><a href="#使用背景图片" class="headerlink" title="使用背景图片"></a>使用背景图片</h3><p>使用三角形盖住元素的顶角（背景是纯色），或者使用一张或多张已经切过角的图片来作为整个元素的背景。</p>
+<h2 id="三种实现方式"><a href="#三种实现方式" class="headerlink" title="三种实现方式"></a>三种实现方式</h2><h3 id="1-使用背景图片"><a href="#1-使用背景图片" class="headerlink" title="1.使用背景图片"></a>1.使用背景图片</h3><p>使用三角形盖住元素的顶角（背景是纯色），或者使用一张或多张已经切过角的图片来作为整个元素的背景。</p>
 <p>使用图片同样可以达到效果，只是难以维护，而且增加了网页的加载时间。</p>
-<h3 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h3>
+<h3 id="2-利用css渐变"><a href="#2-利用css渐变" class="headerlink" title="2.利用css渐变"></a>2.利用css渐变</h3><p>CSS3 渐变（gradients）可以让你在两个或多个指定的颜色之间显示平稳的过渡。</p>
+<p>CSS3 定义了两种类型的渐变（gradients）：</p>
+<p>线性渐变（Linear Gradients）- 向下/向上/向左/向右/对角方向<br>径向渐变（Radial Gradients）- 由它们的中心定义</p>
+<p>窍门：渐变可以接受一个角度（比如45deg）作为方向，而且色变的位置信息也可以是绝对的长度值，不受容器尺寸的影响。（假设切角的深度是15px）</p>
+<p>a. 通过一层渐变，实现一个折角效果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">background: <span class="comment">#a58;/*回退机制*/</span></span><br><span class="line">background: -webkit-linear-gradient(-45deg, <span class="comment">#f5f7f9 15px, #a58 0);/* Safari 5.1 - 6.0 */</span></span><br><span class="line">background: -o-linear-gradient(-45deg, <span class="comment">#f5f7f9 15px, #a58 0);/* Opera 11.1 - 12.0 */</span></span><br><span class="line">background: -moz-linear-gradient(-45deg, <span class="comment">#f5f7f9 15px, #a58 0);/* Firefox 3.6 - 15 */</span></span><br><span class="line">background: linear-gradient(-45deg, <span class="comment">#f5f7f9 15px, #a58 0);/* 标准的语法 */</span></span><br></pre></td></tr></table></figure>
+<p>这个渐变需要把一个透明色标放在切角处，然后在相同位置设置另一个色标，并且把它的颜色设置为我们想要的背景色。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fqcly3fn4fj30eo07eaab.jpg" alt="折角效果"></p>
+<p>b. 通过四层渐变，把四个角都做成切角效果(这里只写了标准形式)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">background: <span class="comment">#a58;/*回退机制*/</span></span><br><span class="line">background: linear-gradient(135deg, <span class="comment">#f5f7f9 15px, #a58 0) top left,</span></span><br><span class="line">            linear-gradient(-135deg, <span class="comment">#f5f7f9 15px, #a58 0) top right,</span></span><br><span class="line">            linear-gradient(-45deg, <span class="comment">#f5f7f9 15px, #a58 0) bottom right,</span></span><br><span class="line">            linear-gradient(45deg, <span class="comment">#f5f7f9 15px, #a58 0) bottom left;/* 标准的语法 */</span></span><br><span class="line">            background-size: 50% 50%;</span><br><span class="line">            background-repeat: no-repeat;</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fqcmlgviw0j30eo0km75b.jpg" alt="四个切角"></p>
+<h3 id="3-scss-代码来写"><a href="#3-scss-代码来写" class="headerlink" title="3.scss 代码来写"></a>3.scss 代码来写</h3><p>使用预处理器的mixin可以帮助我们减少代码的重复率。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> @mixin beveled-corners(<span class="variable">$bg</span>,<span class="variable">$tl</span>:0, <span class="variable">$tr</span>:<span class="variable">$tl</span>, <span class="variable">$br</span>:<span class="variable">$tl</span>, <span class="variable">$bl</span>:<span class="variable">$tr</span>) &#123;</span><br><span class="line"> background: <span class="variable">$bg</span>; </span><br><span class="line"> background:linear-gradient(135deg, transparent <span class="variable">$tl</span>, <span class="variable">$bg</span> 0) top left,</span><br><span class="line">          linear-gradient(-135deg, transparent <span class="variable">$tr</span>, <span class="variable">$bg</span> 0) top right,</span><br><span class="line">          linear-gradient(-45deg, transparent <span class="variable">$br</span>, <span class="variable">$bg</span> 0) bottom right,</span><br><span class="line">          linear-gradient(45deg, transparent <span class="variable">$bl</span>, <span class="variable">$bg</span> 0) bottom left;</span><br><span class="line">          background-size: 50% 50%;</span><br><span class="line">          background-repeat: no-repeat; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，在需要的时候，我们就可以直接调用它，并传入 2~5 个参数:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@include beveled-corners(<span class="comment">#58a, 15px, 5px);</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -465,6 +484,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/14/路由的详解/" rel="prev" title="angular路由的详解">
+                angular路由的详解 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -541,7 +564,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -605,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#切角效果"><span class="nav-number">1.</span> <span class="nav-text">切角效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三种实现方式"><span class="nav-number">2.</span> <span class="nav-text">三种实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用背景图片"><span class="nav-number">2.1.</span> <span class="nav-text">使用背景图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渐变"><span class="nav-number">2.2.</span> <span class="nav-text">渐变</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#切角效果"><span class="nav-number">1.</span> <span class="nav-text">切角效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三种实现方式"><span class="nav-number">2.</span> <span class="nav-text">三种实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用背景图片"><span class="nav-number">2.1.</span> <span class="nav-text">1.使用背景图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-利用css渐变"><span class="nav-number">2.2.</span> <span class="nav-text">2.利用css渐变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-scss-代码来写"><span class="nav-number">2.3.</span> <span class="nav-text">3.scss 代码来写</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -649,7 +672,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共4.3k字</span>
+  <span class="post-count">博客全站共4.7k字</span>
 </div>
 
 
