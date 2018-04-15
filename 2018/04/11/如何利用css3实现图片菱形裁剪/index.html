@@ -105,7 +105,7 @@
 <meta property="og:description" content="就像我的博客头像这样,利用纯css3，把它裁剪为菱形吧！当然利用图像处理软件，也可以很快完成这样的效果。但是当你想要修改图片风格时，就没有那么便利了。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fqa6obgjdaj307i05mmxi.jpg">
-<meta property="og:updated_time" content="2018-04-13T07:11:35.687Z">
+<meta property="og:updated_time" content="2018-04-15T01:32:43.111Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何利用css3实现图片菱形裁剪">
 <meta name="twitter:description" content="就像我的博客头像这样,利用纯css3，把它裁剪为菱形吧！当然利用图像处理软件，也可以很快完成这样的效果。但是当你想要修改图片风格时，就没有那么便利了。">
@@ -382,7 +382,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  481
+                  502
                 </span>
               
 
@@ -419,6 +419,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);</span><br></pre></td></tr></table></figure>
 <h3 id="结合-hover伪类实现动画效果"><a href="#结合-hover伪类实现动画效果" class="headerlink" title="结合:hover伪类实现动画效果"></a>结合:hover伪类实现动画效果</h3><p>如果我们希望图片在鼠标悬停时平滑地扩展为完整的面积，可以结合:hover伪类来实现。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); </span><br><span class="line">   transition: 1s clip-path;</span><br><span class="line">&#125;</span><br><span class="line">img:hover &#123;</span><br><span class="line">   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考文献：</p>
+<p>本博客 css3效果实现部分，参照书籍<a href="http://www.ituring.com.cn/book/1695" target="_blank" rel="noopener">《css揭秘》</a></p>
 
       
     </div>
@@ -663,7 +665,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共4.7k字</span>
+  <span class="post-count">博客全站共5.0k字</span>
 </div>
 
 
