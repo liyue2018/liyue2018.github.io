@@ -1859,7 +1859,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b4ff42;
+  background: #38ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3037,19 +3037,6 @@ body {
 .sidebar {
   box-shadow: 3px 3px 6px -2px rgba(0,0,0,0.4);
 }
-.sidebar-inner {
-  background: #fff; /*回退机制*/
-  background: -webkit-linear-gradient(-45deg, #f5f7f9 15px, #fff 0) top left; /* Safari 5.1 - 6.0 */
-  background: -o-linear-gradient(-45deg, #f5f7f9 15px, #fff 0) top left; /* Opera 11.1 - 12.0 */
-  background: -moz-linear-gradient(-45deg, #f5f7f9 15px, #fff 0) top left; /* Firefox 3.6 - 15 */
-  background: linear-gradient(135deg, #f5f7f9 15px, #fff 0) top left;
-/* background: linear-gradient(135deg, #f5f7f9 15px, #a58 0) top left,
-                  linear-gradient(-135deg, #f5f7f9 15px, #a58 0) top right,
-                  linear-gradient(-45deg, #f5f7f9 15px, #a58 0) bottom right,
-                  linear-gradient(45deg, #f5f7f9 15px, #a58 0) bottom left;
-                  background-size: 50% 50%;
-                  background-repeat: no-repeat;*/
-}
 .posts-expand {
   padding-top: 0px;
 }
@@ -3069,10 +3056,22 @@ body {
 }
 .feed-link a {
   display: block;
-  color: #fc6423;
-  border: 1px solid #fc6423;
-  border-radius: 4px;
+  color: #fff;
   margin: 20px 0;
+  background: #a58;
+  background: radial-gradient(circle at top left, transparent 6px, #58a 0) top left, radial-gradient(circle at top right, transparent 6px, #58a 0) top right, radial-gradient(circle at bottom right, transparent 6px, #58a 0) bottom right, radial-gradient(circle at bottom left, transparent 6px, #58a 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+.feed-link a>i.fa-rss {
+  color: #fff;
+}
+.feed-link a:hover {
+  background: #a58;
+  background: linear-gradient(135deg, #f5f7f9 9px, #a58 0) top left, linear-gradient(-135deg, #f5f7f9 9px, #a58 0) top right, linear-gradient(-45deg, #f5f7f9 9px, #a58 0) bottom right, linear-gradient(45deg, #f5f7f9 9px, #a58 0) bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  color: #fff;
 }
 .site-subtitle {
   color: #fff;
