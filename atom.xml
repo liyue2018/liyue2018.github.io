@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-17T07:34:26.757Z</updated>
+  <updated>2018-04-18T02:21:09.115Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,17 +17,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>css实现自适应椭圆</title>
+    <link href="http://yoursite.com/2018/04/18/css%E5%AE%9E%E7%8E%B0%E8%87%AA%E9%80%82%E5%BA%94%E6%A4%AD%E5%9C%86/"/>
+    <id>http://yoursite.com/2018/04/18/css实现自适应椭圆/</id>
+    <published>2018-04-18T01:09:42.000Z</published>
+    <updated>2018-04-18T02:21:09.115Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="如何产生一个圆"><a href="#如何产生一个圆" class="headerlink" title="如何产生一个圆"></a>如何产生一个圆</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">background: <span class="comment">#a58;</span></span><br><span class="line">width: 200px;</span><br><span class="line">height: 200px;</span><br><span class="line">border-radius: 100px;/*正方形边长的一半*/</span><br></pre></td></tr></table></figure><h2 id="实现一个自适应的圆或椭圆"><a href="#实现一个自适应的圆或椭圆" class="headerlink" title="实现一个自适应的圆或椭圆"></a>实现一个自适应的圆或椭圆</h2><p>很多时候我们并不愿意给元素指定一个固定的宽高，而是希望它能根据里面的内容自动调整。如果它的宽高相等，就显示一个圆，不等就显示为椭圆。<br><a id="more"></a></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>border-radius是可以单独指定水平和垂直半径，只用一个斜杆（/）分隔两个值即可。最重要的是，这两个值可以接受百分比值。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 50% / 50%;</span><br></pre></td></tr></table></figure><p>由于斜杆前后的两个值是一致的，我们可以进一步简化。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 50%;</span><br></pre></td></tr></table></figure><p>只需一行代码就可以产生一个自适应的椭圆了。</p><h2 id="半椭圆"><a href="#半椭圆" class="headerlink" title="半椭圆"></a>半椭圆</h2><h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p>利用border-radius的展开式属性，实现这个效果。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">border-top-left-radius</span><br><span class="line">border-top-right-radius</span><br><span class="line">border-bottom-left-radius</span><br><span class="line">border-bottom-right-radius</span><br></pre></td></tr></table></figure><p>如果border-radius属性展开式是这样的，那它代表的意思其实是</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 300px 300px 300px 300px/300px 300px 300px 300px;</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">border-radius: </span><br><span class="line">     左上角水平圆角半径大小 右上角水平圆角半径大小 右下角水平圆角半径大小 </span><br><span class="line">     左下角水平圆角半径大小/左上角垂直圆角半径大小 右上角垂直圆角半径大小 </span><br><span class="line">     右下角垂直圆角半径大小 左下角垂直圆角半径大小;</span><br></pre></td></tr></table></figure><p>一个水平半径和一个垂直半径所夹起的那1/4段圆弧就是我们平时看的的圆角呈现，如下变色显示：</p><p><img src="http://image.zhangxinxu.com/image/blog/201511/2015-11-01_191017-highlight.png" alt=""></p><p>所以如果我想产生一个半椭圆的话，</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">border-radius: </span><br><span class="line">     左上角水平圆角半径大小 右上角水平圆角半径大小 右下角水平圆角半径大小 </span><br><span class="line">     左下角水平圆角半径大小/左上角垂直圆角半径大小 右上角垂直圆角半径大小 </span><br><span class="line">     右下角垂直圆角半径大小 左下角垂直圆角半径大小;</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 50% / 100% 100% 0 0;/*向上的半圆*/</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 100% 0 0 100%;/*向左的半圆*/</span><br></pre></td></tr></table></figure><h2 id="四分之一椭圆"><a href="#四分之一椭圆" class="headerlink" title="四分之一椭圆"></a>四分之一椭圆</h2><p>其中一个角的水平和垂直半径都需要时100%，而其他三个角度不能设置为圆角。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 100% 0 0 0;/*四分之一半圆*/</span><br></pre></td></tr></table></figure><p>有兴趣的点击<a href="http://www.zhangxinxu.com/wordpress/2015/11/css3-border-radius-tips/" target="_blank" rel="noopener">这里</a>，大神还制作了一个在线体验页面。<a href="http://www.zhangxinxu.com/study/201511/demo-border-radius.html" target="_blank" rel="noopener">这里</a></p><p>膜拜一下！！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;如何产生一个圆&quot;&gt;&lt;a href=&quot;#如何产生一个圆&quot; class=&quot;headerlink&quot; title=&quot;如何产生一个圆&quot;&gt;&lt;/a&gt;如何产生一个圆&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;background: &lt;span class=&quot;comment&quot;&gt;#a58;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;width: 200px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;height: 200px;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;border-radius: 100px;/*正方形边长的一半*/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;实现一个自适应的圆或椭圆&quot;&gt;&lt;a href=&quot;#实现一个自适应的圆或椭圆&quot; class=&quot;headerlink&quot; title=&quot;实现一个自适应的圆或椭圆&quot;&gt;&lt;/a&gt;实现一个自适应的圆或椭圆&lt;/h2&gt;&lt;p&gt;很多时候我们并不愿意给元素指定一个固定的宽高，而是希望它能根据里面的内容自动调整。如果它的宽高相等，就显示一个圆，不等就显示为椭圆。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="css" scheme="http://yoursite.com/categories/css/"/>
+    
+    
+      <category term="border-radius" scheme="http://yoursite.com/tags/border-radius/"/>
+    
+  </entry>
+  
+  <entry>
     <title>使用git踩过的坑</title>
     <link href="http://yoursite.com/2018/04/17/%E4%BD%BF%E7%94%A8git%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/"/>
     <id>http://yoursite.com/2018/04/17/使用git踩过的坑/</id>
     <published>2018-04-17T07:01:25.000Z</published>
-    <updated>2018-04-17T07:34:26.757Z</updated>
+    <updated>2018-04-18T01:27:15.739Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="提交时报错"><a href="#提交时报错" class="headerlink" title="提交时报错"></a>提交时报错</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ error: failed to push some refs to <span class="string">'https://github.com/你的GitHub/learn-DI.git'</span></span><br></pre></td></tr></table></figure><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>使用这种方式再提交一次</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -f origin master</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="提交时会自动忽略node-modules文件"><a href="#提交时会自动忽略node-modules文件" class="headerlink" title="提交时会自动忽略node_modules文件"></a>提交时会自动忽略node_modules文件</h2><h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fqfor6wp97j309m0acmxv.jpg" alt=""></p><p>注释或删除掉</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dependencies</span></span><br><span class="line">/node_modules</span><br></pre></td></tr></table></figure><p>##在github上预览自己的网页</p><p><a href="https://www.zhihu.com/question/24156818" target="_blank" rel="noopener">https://www.zhihu.com/question/24156818</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="提交时报错"><a href="#提交时报错" class="headerlink" title="提交时报错"></a>提交时报错</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ error: failed to push some refs to </span><br><span class="line"><span class="string">'https://github.com/你的GitHub/learn-DI.git'</span></span><br></pre></td></tr></table></figure><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>使用这种方式再提交一次</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -f origin master</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="提交时会自动忽略node-modules文件"><a href="#提交时会自动忽略node-modules文件" class="headerlink" title="提交时会自动忽略node_modules文件"></a>提交时会自动忽略node_modules文件</h2><h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fqfor6wp97j309m0acmxv.jpg" alt=""></p><p>注释或删除掉</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dependencies</span></span><br><span class="line">/node_modules</span><br></pre></td></tr></table></figure><p>##在github上预览自己的网页</p><p><a href="https://www.zhihu.com/question/24156818" target="_blank" rel="noopener">https://www.zhihu.com/question/24156818</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;提交时报错&quot;&gt;&lt;a href=&quot;#提交时报错&quot; class=&quot;headerlink&quot; title=&quot;提交时报错&quot;&gt;&lt;/a&gt;提交时报错&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ error: failed to push some refs to &lt;span class=&quot;string&quot;&gt;&#39;https://github.com/你的GitHub/learn-DI.git&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h2 id=&quot;提交时报错&quot;&gt;&lt;a href=&quot;#提交时报错&quot; class=&quot;headerlink&quot; title=&quot;提交时报错&quot;&gt;&lt;/a&gt;提交时报错&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ error: failed to push some refs to &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&#39;https://github.com/你的GitHub/learn-DI.git&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;解决方法&quot;&gt;&lt;a href=&quot;#解决方法&quot; class=&quot;headerlink&quot; title=&quot;解决方法&quot;&gt;&lt;/a&gt;解决方法&lt;/h3&gt;&lt;p&gt;使用这种方式再提交一次&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git push -f origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
@@ -96,9 +119,9 @@
     <link href="http://yoursite.com/2018/04/14/%E8%B7%AF%E7%94%B1%E7%9A%84%E8%AF%A6%E8%A7%A3/"/>
     <id>http://yoursite.com/2018/04/14/路由的详解/</id>
     <published>2018-04-14T14:29:41.000Z</published>
-    <updated>2018-04-15T02:19:22.844Z</updated>
+    <updated>2018-04-18T00:58:45.763Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h3 id="使用Angular-Router-导航"><a href="#使用Angular-Router-导航" class="headerlink" title="使用Angular Router 导航"></a>使用Angular Router 导航</h3><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fqd4izqrv0j30um0eygn3.jpg" alt="Angular Router"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ng new router --routing //利用routing参数新建一个router项目</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h3 id="使用Angular-Router-导航"><a href="#使用Angular-Router-导航" class="headerlink" title="使用Angular Router 导航"></a>使用Angular Router 导航</h3><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fqd4izqrv0j30um0eygn3.jpg" alt="Angular Router"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ng new router --routing //利用routing参数新建一个router项目</span><br></pre></td></tr></table></figure><h3 id="angular2-路由的重要概念"><a href="#angular2-路由的重要概念" class="headerlink" title="angular2 路由的重要概念"></a>angular2 路由的重要概念</h3><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fqgj26ouwwj30rc0fgwgz.jpg" alt=""></p>]]></content>
     
     <summary type="html">
     
@@ -147,9 +170,9 @@
     <link href="http://yoursite.com/2018/04/13/%E7%B3%96%E6%9E%9C%E6%8C%89%E9%92%AE/"/>
     <id>http://yoursite.com/2018/04/13/糖果按钮/</id>
     <published>2018-04-13T07:56:51.000Z</published>
-    <updated>2018-04-15T01:32:20.639Z</updated>
+    <updated>2018-04-18T02:24:55.900Z</updated>
     
-    <content type="html"><![CDATA[<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><p>参考文献：</p><p>本博客 css3效果实现部分，参照书籍<a href="http://www.ituring.com.cn/book/1695" target="_blank" rel="noopener">《css揭秘》</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="糖果色按钮"><a href="#糖果色按钮" class="headerlink" title="糖果色按钮"></a><a href="http://simurai.com/" target="_blank" rel="noopener">糖果色按钮</a></h2><p>参考文献：</p><p>本博客 css3效果实现部分，参照书籍<a href="http://www.ituring.com.cn/book/1695" target="_blank" rel="noopener">《css揭秘》</a></p>]]></content>
     
     <summary type="html">
     
