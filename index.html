@@ -383,7 +383,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  288
+                  303
                 </span>
               
 
@@ -409,14 +409,15 @@
 
       
         
-          
-            <h2 id="为什么需要图片懒加载？"><a href="#为什么需要图片懒加载？" class="headerlink" title="为什么需要图片懒加载？"></a>为什么需要图片懒加载？</h2><p>正常情况下，浏览器会解析整个HTML代码，然后从上到下依次加载img标签。如果页面很长，隐藏在页面下方的图片其实已经被浏览器加载了。如果用户不向下滚动页面，就没有看到这些图片，相当于白白浪费了图片的流量。</p>
-<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><p>当网站需要大量图片（流量消耗很大），“按需加载”。即用户滚动页面时才加载图片。当网速非常快的时候，用户并不能感知懒加载的动作，既省流量又不影响用户浏览。</p>
-<h2 id="jQuery-实现图片懒加载的原理"><a href="#jQuery-实现图片懒加载的原理" class="headerlink" title="jQuery 实现图片懒加载的原理"></a>jQuery 实现图片懒加载的原理</h2><p>基本思想是：在输出HTML的时候，不要直接输出&lt;img src=”xxx”，而是输出如下的img标签：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=<span class="string">"/static/loading.gif"</span> data-src=<span class="string">"http://真正的图片地址/xxx.jpg"</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>实现原理：页面显示的图片是一个gif加载动画。当页面滚动时，如果图片出现在屏幕中，就利用jQuery把<img>的src属性替换为data-src的内容，浏览器就会实时加载。</p>
-
-          
+          <h2 id="为什么需要图片懒加载？"><a href="#为什么需要图片懒加载？" class="headerlink" title="为什么需要图片懒加载？"></a>为什么需要图片懒加载？</h2><p>正常情况下，浏览器会解析整个HTML代码，然后从上到下依次加载img标签。如果页面很长，隐藏在页面下方的图片其实已经被浏览器加载了。如果用户不向下滚动页面，就没有看到这些图片，相当于白白浪费了图片的流量。</p>
+<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><p>当网站需要大量图片（流量消耗很大），“按需加载”。即用户滚动页面时才加载图片。当网速非常快的时候，用户并不能感知懒加载的动作，既省流量又不影响用户浏览。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/18/图片懒加载的原理及实现方式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1153,7 +1154,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共6.3k字</span>
+  <span class="post-count">博客全站共7.0k字</span>
 </div>
 
 
