@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="html5,javascript,jquery," />
+  <meta name="keywords" content="html,javascript,css," />
 
 
 
@@ -96,18 +96,20 @@
 
 
 
-<meta name="description" content="为什么需要图片懒加载？正常情况下，浏览器会解析整个HTML代码，然后从上到下依次加载img标签。如果页面很长，隐藏在页面下方的图片其实已经被浏览器加载了。如果用户不向下滚动页面，就没有看到这些图片，相当于白白浪费了图片的流量。 解决方式当网站需要大量图片（流量消耗很大），“按需加载”。即用户滚动页面时才加载图片。当网速非常快的时候，用户并不能感知懒加载的动作，既省流量又不影响用户浏览。">
-<meta name="keywords" content="html5,javascript,jquery">
+<meta name="description" content="浏览器渲染页面过程">
+<meta name="keywords" content="html,javascript,css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图片懒加载的原理及实现方式">
-<meta property="og:url" content="http://yoursite.com/2018/04/18/图片懒加载的原理及实现方式/index.html">
+<meta property="og:title" content="浏览器页面渲染机制和页面优化">
+<meta property="og:url" content="http://yoursite.com/2018/04/19/浏览器页面渲染机制和页面优化/index.html">
 <meta property="og:site_name" content="Cnly小姐的博客">
-<meta property="og:description" content="为什么需要图片懒加载？正常情况下，浏览器会解析整个HTML代码，然后从上到下依次加载img标签。如果页面很长，隐藏在页面下方的图片其实已经被浏览器加载了。如果用户不向下滚动页面，就没有看到这些图片，相当于白白浪费了图片的流量。 解决方式当网站需要大量图片（流量消耗很大），“按需加载”。即用户滚动页面时才加载图片。当网速非常快的时候，用户并不能感知懒加载的动作，既省流量又不影响用户浏览。">
+<meta property="og:description" content="浏览器渲染页面过程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-18T06:17:19.305Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fqi01dtluwj30jx0gadgz.jpg">
+<meta property="og:updated_time" content="2018-04-19T07:53:55.430Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图片懒加载的原理及实现方式">
-<meta name="twitter:description" content="为什么需要图片懒加载？正常情况下，浏览器会解析整个HTML代码，然后从上到下依次加载img标签。如果页面很长，隐藏在页面下方的图片其实已经被浏览器加载了。如果用户不向下滚动页面，就没有看到这些图片，相当于白白浪费了图片的流量。 解决方式当网站需要大量图片（流量消耗很大），“按需加载”。即用户滚动页面时才加载图片。当网速非常快的时候，用户并不能感知懒加载的动作，既省流量又不影响用户浏览。">
+<meta name="twitter:title" content="浏览器页面渲染机制和页面优化">
+<meta name="twitter:description" content="浏览器渲染页面过程">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fqi01dtluwj30jx0gadgz.jpg">
 
 
 
@@ -136,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/18/图片懒加载的原理及实现方式/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/19/浏览器页面渲染机制和页面优化/"/>
 
 
 
 
 
-  <title>图片懒加载的原理及实现方式 | Cnly小姐的博客</title>
+  <title>浏览器页面渲染机制和页面优化 | Cnly小姐的博客</title>
   
 
 
@@ -286,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/18/图片懒加载的原理及实现方式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/19/浏览器页面渲染机制和页面优化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liyue">
@@ -303,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">图片懒加载的原理及实现方式</h1>
+          <h1 class="post-title" itemprop="name headline">浏览器页面渲染机制和页面优化</h1>
         
 
         <div class="post-meta">
@@ -315,8 +317,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T10:30:28+08:00">
-                2018-04-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-19T15:22:42+08:00">
+                2018-04-19
               </time>
             
 
@@ -338,8 +340,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/html5/" itemprop="url" rel="index">
-                    <span itemprop="name">html5</span>
+                  <a href="/categories/html/" itemprop="url" rel="index">
+                    <span itemprop="name">html</span>
                   </a>
                 </span>
 
@@ -355,7 +357,7 @@
 
           
           
-             <span id="/2018/04/18/图片懒加载的原理及实现方式/" class="leancloud_visitors" data-flag-title="图片懒加载的原理及实现方式">
+             <span id="/2018/04/19/浏览器页面渲染机制和页面优化/" class="leancloud_visitors" data-flag-title="浏览器页面渲染机制和页面优化">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -380,7 +382,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  303
+                  956
                 </span>
               
 
@@ -405,18 +407,45 @@
       
 
       
-        <h2 id="为什么需要图片懒加载？"><a href="#为什么需要图片懒加载？" class="headerlink" title="为什么需要图片懒加载？"></a>为什么需要图片懒加载？</h2><p>正常情况下，浏览器会解析整个HTML代码，然后从上到下依次加载img标签。如果页面很长，隐藏在页面下方的图片其实已经被浏览器加载了。如果用户不向下滚动页面，就没有看到这些图片，相当于白白浪费了图片的流量。</p>
-<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><p>当网站需要大量图片（流量消耗很大），“按需加载”。即用户滚动页面时才加载图片。当网速非常快的时候，用户并不能感知懒加载的动作，既省流量又不影响用户浏览。<br><a id="more"></a></p>
-<h2 id="jQuery-实现图片懒加载的原理"><a href="#jQuery-实现图片懒加载的原理" class="headerlink" title="jQuery 实现图片懒加载的原理"></a>jQuery 实现图片懒加载的原理</h2><p>基本思想是：在输出HTML的时候，不要直接输出&lt;img src=”xxx”，而是输出如下的img标签：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=<span class="string">"/static/loading.gif"</span> data-src=<span class="string">"http://真正的图片地址/xxx.jpg"</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>实现原理：页面显示的图片是一个gif加载动画。当页面滚动时，如果图片出现在屏幕中，就利用jQuery把<img>的src属性替换为data-src的内容，浏览器就会实时加载。</p>
-<p>jQuery 代码如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>原文<a href="https://www.liaoxuefeng.com/article/00151045553343934ba3bb4ed684623b1bf00488231d88d000" target="_blank" rel="noopener">戳这里</a></p>
-<p>jquery.lazyload.js </p>
-<pre><code class="bash">
-</code></pre>
-
+        <h2 id="浏览器渲染页面过程"><a href="#浏览器渲染页面过程" class="headerlink" title="浏览器渲染页面过程"></a>浏览器渲染页面过程</h2><p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fqi01dtluwj30jx0gadgz.jpg" alt=""></p>
+<a id="more"></a>
+<h3 id="解析HTML文件，创建DOM树"><a href="#解析HTML文件，创建DOM树" class="headerlink" title="解析HTML文件，创建DOM树"></a>解析HTML文件，创建DOM树</h3><p>自上而下，遇到任何样式（link、style）与脚本（script）都会阻塞（外部样式不阻塞后续外部脚本的加载）。<br>构建CSS Object Model（CSSOM)会阻塞JavaScript的执行。JavaScript的执行也会阻塞DOM的构建。</p>
+<h3 id="解析CSS文件，创建CSS规则树"><a href="#解析CSS文件，创建CSS规则树" class="headerlink" title="解析CSS文件，创建CSS规则树"></a>解析CSS文件，创建CSS规则树</h3><p>四种CSS引入方式的优先级<br>1.就近原则<br>2.理论上：浏览器默认设置&lt;用户设置&lt;外部样式&lt;内联样式&lt;HTML中的style样式<br>3.实际上：内嵌、链接、导入在同一个文件头部，谁离相应的代码近，谁的优先级高</p>
+<p>特定级：id数<em>100+类或伪类数</em>10+tag名称*1</p>
+<h3 id="将CSS与DOM合并，构建渲染树（renderingtree）"><a href="#将CSS与DOM合并，构建渲染树（renderingtree）" class="headerlink" title="将CSS与DOM合并，构建渲染树（renderingtree）"></a>将CSS与DOM合并，构建渲染树（renderingtree）</h3><p>DOM树与HTML一一对应，渲染树会忽略诸如head、display:none的元素</p>
+<h3 id="布局和绘制，重绘（repaint）和重排（reflow）"><a href="#布局和绘制，重绘（repaint）和重排（reflow）" class="headerlink" title="布局和绘制，重绘（repaint）和重排（reflow）"></a>布局和绘制，重绘（repaint）和重排（reflow）</h3><p>布局Layout</p>
+<p>创建渲染树后，下一步就是布局（Layout）,或者叫回流（reflow,relayout），这个过程就是通过渲染树中渲染对象的信息，计算出每一个渲染对象的位置和尺寸，将其安置在浏览器窗口的正确位置，而有些时候我们会在文档布局完成后对DOM进行修改，这时候可能需要重新进行布局，也可称其为回流，本质上还是一个布局的过程，每一个渲染对象都有一个布局或者回流方法，实现其布局或回流。</p>
+<p>对渲染树的布局可以分为全局和局部的，全局即对整个渲染树进行重新布局，如当我们改变了窗口尺寸或方向或者是修改了根元素的尺寸或者字体大小等；而局部布局可以是对渲染树的某部分或某一个渲染对象进行重新布局。</p>
+<p>大多数web应用对DOM的操作都是比较频繁，这意味着经常需要对DOM进行布局和回流，而如果仅仅是一些小改变，就触发整个渲染树的回流，这显然是不好的，为了避免这种情况，浏览器使用了脏位系统，只有一个渲染对象改变了或者某渲染对象及其子渲染对象脏位值为”dirty”时，说明需要回流。</p>
+<p>重排：若渲染树的一部分更新，且尺寸变化，就会发生重排(只要修改DOM或修改了元素的形状或大小，就会发生重排)。<br>重绘：部分节点需要更新，但不改变其他集合形状。如改变某个元素的颜色，就会发生重绘。 </p>
+<p>1.重绘和重排何时会发生：</p>
+<p>（1）增加或删除DOM节点；<br>（2）display:none（重排并重绘）；visibility:hidden（重排）；<br>（3）移动页面中的元素；<br>（4）增加或修改样式；<br>（5）用户改变窗口大小，滚动页面等。<br>2.如何减少重绘和重排以提升页面性能：<br>（1）不要一个个修改属性，应通过一个class来修改<br>错误写法：div.style.width=”50px”;div.style.top=”60px”;<br>正确写法：div.className+=” modify”;</p>
+<p>（2）clone节点，在副本中修改，然后直接替换当前的节点；<br>（3）若要频繁获取计算后的样式，请暂存起来；<br>（4）降低受影响的节点：在页面顶部插入节点将影响后续所有节点。而绝对定位的元素改变会影响较少的元素；<br>（5）批量添加DOM：多个DOM插入或修改，应组成一个长的字符串后一次性放入DOM。使用innerHTML永远比DOM操作快。（特别注意：innerHTML不会执行字符串中的嵌入脚本，因此不会产生XSS漏洞）。</p>
+<h3 id="脚本处理"><a href="#脚本处理" class="headerlink" title="脚本处理"></a>脚本处理</h3><p>浏览器解析文档，当遇到<script>标签的时候，会立即解析脚本，停止解析文档（因为JS可能会改动DOM和CSS所以继续解析会造成浪费）。</p>
+<p>如果脚本是外部的，会等待脚本下载完毕，再继续解析文档。现在可以在script标签上增加属性 defer或者async。</p>
+<p>async 属性规定一旦脚本可用，则会异步执行。<br>注释：async 属性仅适用于外部脚本（只有在使用 src 属性时）。<br>注释：有多种执行外部脚本的方法：</p>
+<ul>
+<li>如果 async=”async”：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）</li>
+<li>如果不使用 async 且 defer=”defer”：脚本将在页面完成解析时执行</li>
+<li>如果既不使用 async 也不使用 defer：在浏览器继续解析页面之前，立即读取并执行脚本</li>
+</ul>
+<p>脚本解析会将脚本中改变DOM和CSS的地方分别解析出来，追加到DOM Tree和Style Rules上。</p>
+<p>页面渲染优化</p>
+<p>浏览器对上文介绍的关键渲染路径进行了很多优化，针对每一次变化产生尽量少的操作，还有优化判断重新绘制或布局的方式等等。</p>
+<p>在改变文档根元素的字体颜色等视觉性信息时，会触发整个文档的重绘，而改变某元素的字体颜色则只触发特定元素的重绘；改变元素的位置信息会同时触发此元素（可能还包括其兄弟元素或子级元素）的布局和重绘。某些重大改变，如更改文档根元素的字体尺寸，则会触发整个文档的重新布局和重绘，据此及上文所述，推荐以下优化和实践：</p>
+<ol>
+<li>HTML文档结构层次尽量少，最好不深于六层；</li>
+<li>脚本尽量后放，放在前即可；</li>
+<li>少量首屏样式内联放在标签内；</li>
+<li>样式结构层次尽量简单；</li>
+<li>在脚本中尽量减少DOM操作，尽量缓存访问DOM的样式信息，避免过度触发回流；</li>
+<li>减少通过JavaScript代码修改元素样式，尽量使用修改class名方式操作样式或动画；</li>
+<li>动画尽量使用在绝对定位或固定定位的元素上；</li>
+<li>隐藏在屏幕外，或在页面滚动时，尽量停止动画；</li>
+<li>尽量缓存DOM查找，查找器尽量简洁；</li>
+<li>涉及多域名的网站，可以开启域名预解析</li>
+</ol>
+</script></p>
       
     </div>
     
@@ -450,11 +479,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/html5/" rel="tag"><i class="fa fa-tag"></i> html5</a>
+            <a href="/tags/html/" rel="tag"><i class="fa fa-tag"></i> html</a>
           
             <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
           
-            <a href="/tags/jquery/" rel="tag"><i class="fa fa-tag"></i> jquery</a>
+            <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
           
         </div>
       
@@ -467,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/18/css实现自适应椭圆/" rel="next" title="css实现自适应椭圆">
-                <i class="fa fa-chevron-left"></i> css实现自适应椭圆
+              <a href="/2018/04/18/图片懒加载的原理及实现方式/" rel="next" title="图片懒加载的原理及实现方式">
+                <i class="fa fa-chevron-left"></i> 图片懒加载的原理及实现方式
               </a>
             
           </div>
@@ -476,10 +505,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/19/浏览器页面渲染机制和页面优化/" rel="prev" title="浏览器页面渲染机制和页面优化">
-                浏览器页面渲染机制和页面优化 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -620,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要图片懒加载？"><span class="nav-number">1.</span> <span class="nav-text">为什么需要图片懒加载？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方式"><span class="nav-number">2.</span> <span class="nav-text">解决方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-实现图片懒加载的原理"><span class="nav-number">3.</span> <span class="nav-text">jQuery 实现图片懒加载的原理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器渲染页面过程"><span class="nav-number">1.</span> <span class="nav-text">浏览器渲染页面过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解析HTML文件，创建DOM树"><span class="nav-number">1.1.</span> <span class="nav-text">解析HTML文件，创建DOM树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析CSS文件，创建CSS规则树"><span class="nav-number">1.2.</span> <span class="nav-text">解析CSS文件，创建CSS规则树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将CSS与DOM合并，构建渲染树（renderingtree）"><span class="nav-number">1.3.</span> <span class="nav-text">将CSS与DOM合并，构建渲染树（renderingtree）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局和绘制，重绘（repaint）和重排（reflow）"><span class="nav-number">1.4.</span> <span class="nav-text">布局和绘制，重绘（repaint）和重排（reflow）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本处理"><span class="nav-number">1.5.</span> <span class="nav-text">脚本处理</span></a></li></ol></li></ol></div>
             
 
           </div>
