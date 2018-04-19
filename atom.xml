@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-19T09:33:38.600Z</updated>
+  <updated>2018-04-19T10:17:48.202Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="http://yoursite.com/2018/04/19/%E6%B5%8F%E8%A7%88%E5%99%A8%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E5%92%8C%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96/"/>
     <id>http://yoursite.com/2018/04/19/浏览器页面渲染机制和页面优化/</id>
     <published>2018-04-19T07:22:42.000Z</published>
-    <updated>2018-04-19T09:33:38.600Z</updated>
+    <updated>2018-04-19T10:17:48.202Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="浏览器渲染页面过程"><a href="#浏览器渲染页面过程" class="headerlink" title="浏览器渲染页面过程"></a>浏览器渲染页面过程</h2><p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fqi01dtluwj30jx0gadgz.jpg" alt=""></p><a id="more"></a><h3 id="解析HTML文件，创建DOM树"><a href="#解析HTML文件，创建DOM树" class="headerlink" title="解析HTML文件，创建DOM树"></a>解析HTML文件，创建DOM树</h3><p>自上而下，遇到任何样式（link、style）与脚本（script）都会阻塞（外部样式不阻塞后续外部脚本的加载）。<br>构建CSS Object Model（CSSOM)会阻塞JavaScript的执行。JavaScript的执行也会阻塞DOM的构建。</p><h3 id="解析CSS文件，创建CSS规则树"><a href="#解析CSS文件，创建CSS规则树" class="headerlink" title="解析CSS文件，创建CSS规则树"></a>解析CSS文件，创建CSS规则树</h3><p>四种CSS引入方式的优先级<br>1.就近原则<br>2.理论上：浏览器默认设置&lt;用户设置&lt;外部样式&lt;内联样式&lt;HTML中的style样式<br>3.实际上：内嵌、链接、导入在同一个文件头部，谁离相应的代码近，谁的优先级高</p><p>特定级：id数<em>100+类或伪类数</em>10+tag名称*1</p><h3 id="将CSS与DOM合并，构建渲染树（renderingtree）"><a href="#将CSS与DOM合并，构建渲染树（renderingtree）" class="headerlink" title="将CSS与DOM合并，构建渲染树（renderingtree）"></a>将CSS与DOM合并，构建渲染树（renderingtree）</h3><p>DOM树与HTML一一对应，渲染树会忽略诸如head、display:none的元素</p><h3 id="布局和绘制，重绘（repaint）和重排（reflow）"><a href="#布局和绘制，重绘（repaint）和重排（reflow）" class="headerlink" title="布局和绘制，重绘（repaint）和重排（reflow）"></a>布局和绘制，重绘（repaint）和重排（reflow）</h3><p>布局Layout</p><p>创建渲染树后，下一步就是布局（Layout）,或者叫回流（reflow,relayout），这个过程就是通过渲染树中渲染对象的信息，计算出每一个渲染对象的位置和尺寸，将其安置在浏览器窗口的正确位置，而有些时候我们会在文档布局完成后对DOM进行修改，这时候可能需要重新进行布局，也可称其为回流，本质上还是一个布局的过程，每一个渲染对象都有一个布局或者回流方法，实现其布局或回流。</p><p>对渲染树的布局可以分为全局和局部的，全局即对整个渲染树进行重新布局，如当我们改变了窗口尺寸或方向或者是修改了根元素的尺寸或者字体大小等；而局部布局可以是对渲染树的某部分或某一个渲染对象进行重新布局。</p><p>大多数web应用对DOM的操作都是比较频繁，这意味着经常需要对DOM进行布局和回流，而如果仅仅是一些小改变，就触发整个渲染树的回流，这显然是不好的，为了避免这种情况，浏览器使用了脏位系统，只有一个渲染对象改变了或者某渲染对象及其子渲染对象脏位值为”dirty”时，说明需要回流。</p><p>重排：若渲染树的一部分更新，且尺寸变化，就会发生重排(只要修改DOM或修改了元素的形状或大小，就会发生重排)。<br>重绘：部分节点需要更新，但不改变其他集合形状。如改变某个元素的颜色，就会发生重绘。 </p><p>1.重绘和重排何时会发生：</p><p>（1）增加或删除DOM节点；<br>（2）display:none（重排并重绘）；visibility:hidden（重排）；<br>（3）移动页面中的元素；<br>（4）增加或修改样式；<br>（5）用户改变窗口大小，滚动页面等。<br>2.如何减少重绘和重排以提升页面性能：<br>（1）不要一个个修改属性，应通过一个class来修改<br>错误写法：div.style.width=”50px”;div.style.top=”60px”;<br>正确写法：div.className+=” modify”;</p><p>（2）clone节点，在副本中修改，然后直接替换当前的节点；<br>（3）若要频繁获取计算后的样式，请暂存起来；<br>（4）降低受影响的节点：在页面顶部插入节点将影响后续所有节点。而绝对定位的元素改变会影响较少的元素；<br>（5）批量添加DOM：多个DOM插入或修改，应组成一个长的字符串后一次性放入DOM。使用innerHTML永远比DOM操作快。（特别注意：innerHTML不会执行字符串中的嵌入脚本，因此不会产生XSS漏洞）。</p><h3 id="脚本处理"><a href="#脚本处理" class="headerlink" title="脚本处理"></a>脚本处理</h3><p>浏览器解析文档，当遇到<script>标签的时候，会立即解析脚本，停止解析文档（因为JS可能会改动DOM和CSS所以继续解析会造成浪费）。</p><p>如果脚本是外部的，会等待脚本下载完毕，再继续解析文档。现在可以在script标签上增加属性 defer或者async。</p><p>async 属性规定一旦脚本可用，则会异步执行。<br>注释：async 属性仅适用于外部脚本（只有在使用 src 属性时）。<br>注释：有多种执行外部脚本的方法：</p><ul><li>如果 async=”async”：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）</li><li>如果不使用 async 且 defer=”defer”：脚本将在页面完成解析时执行</li><li>如果既不使用 async 也不使用 defer：在浏览器继续解析页面之前，立即读取并执行脚本</li></ul><p>脚本解析会将脚本中改变DOM和CSS的地方分别解析出来，追加到DOM Tree和Style Rules上。</p><p>页面渲染优化</p><p>浏览器对上文介绍的关键渲染路径进行了很多优化，针对每一次变化产生尽量少的操作，还有优化判断重新绘制或布局的方式等等。</p><p>在改变文档根元素的字体颜色等视觉性信息时，会触发整个文档的重绘，而改变某元素的字体颜色则只触发特定元素的重绘；改变元素的位置信息会同时触发此元素（可能还包括其兄弟元素或子级元素）的布局和重绘。某些重大改变，如更改文档根元素的字体尺寸，则会触发整个文档的重新布局和重绘，据此及上文所述，推荐以下优化和实践：</p><ol><li>HTML文档结构层次尽量少，最好不深于六层。</li><li>脚本尽量后放，放在body标签前即可。</li><li>少量首屏样式内联放在标签内。</li><li>样式结构层次尽量简单。</li><li>在脚本中尽量减少DOM操作，尽量缓存访问DOM的样式信息，避免过度触发回流。</li><li>减少通过JavaScript代码修改元素样式，尽量使用修改class名方式操作样式或动画。</li><li>动画尽量使用在绝对定位或固定定位的元素上。</li><li>隐藏在屏幕外，或在页面滚动时，尽量停止动画。</li><li>尽量缓存DOM查找，查找器尽量简洁。</li><li>涉及多域名的网站，可以开启域名预解析。</li></ol></script></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="浏览器渲染页面过程"><a href="#浏览器渲染页面过程" class="headerlink" title="浏览器渲染页面过程"></a>浏览器渲染页面过程</h2><p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fqi01dtluwj30jx0gadgz.jpg" alt=""><br><a id="more"></a></p><h3 id="解析HTML文件，创建DOM树"><a href="#解析HTML文件，创建DOM树" class="headerlink" title="解析HTML文件，创建DOM树"></a>解析HTML文件，创建DOM树</h3><p>自上而下，遇到任何样式（link、style）与脚本（script）都会阻塞（外部样式不阻塞后续外部脚本的加载）。<br>构建CSS Object Model（CSSOM)会阻塞JavaScript的执行。JavaScript的执行也会阻塞DOM的构建。</p><h3 id="解析CSS文件，创建CSS规则树"><a href="#解析CSS文件，创建CSS规则树" class="headerlink" title="解析CSS文件，创建CSS规则树"></a>解析CSS文件，创建CSS规则树</h3><p>四种CSS引入方式的优先级<br>1.就近原则<br>2.理论上：浏览器默认设置&lt;用户设置&lt;外部样式&lt;内联样式&lt;HTML中的style样式<br>3.实际上：内嵌、链接、导入在同一个文件头部，谁离相应的代码近，谁的优先级高</p><p>特定级：id数<em>100+类或伪类数</em>10+tag名称*1</p><h3 id="将CSS与DOM合并，构建渲染树（renderingtree）"><a href="#将CSS与DOM合并，构建渲染树（renderingtree）" class="headerlink" title="将CSS与DOM合并，构建渲染树（renderingtree）"></a>将CSS与DOM合并，构建渲染树（renderingtree）</h3><p>DOM树与HTML一一对应，渲染树会忽略诸如head、display:none的元素</p><p>慎重选择高消耗的样式</p><p>什么CSS属性是高消耗的？就是那些绘制前需要浏览器进行大量计算的属性。</p><p>box-shadows<br>border-radius<br>transparency<br>transforms<br>CSS filters（性能杀手）</p><h3 id="布局和绘制渲染树，重绘（repaint）和重排（reflow）"><a href="#布局和绘制渲染树，重绘（repaint）和重排（reflow）" class="headerlink" title="布局和绘制渲染树，重绘（repaint）和重排（reflow）"></a>布局和绘制渲染树，重绘（repaint）和重排（reflow）</h3><p>布局Layout</p><p>创建渲染树后，下一步就是布局（Layout）,或者叫回流（reflow,relayout），这个过程就是通过渲染树中渲染对象的信息，计算出每一个渲染对象的位置和尺寸，将其安置在浏览器窗口的正确位置，而有些时候我们会在文档布局完成后对DOM进行修改，这时候可能需要重新进行布局，也可称其为回流，本质上还是一个布局的过程，每一个渲染对象都有一个布局或者回流方法，实现其布局或回流。</p><p>对渲染树的布局可以分为全局和局部的，全局即对整个渲染树进行重新布局，如当我们改变了窗口尺寸或方向或者是修改了根元素的尺寸或者字体大小等；而局部布局可以是对渲染树的某部分或某一个渲染对象进行重新布局。</p><p>大多数web应用对DOM的操作都是比较频繁，这意味着经常需要对DOM进行布局和回流，而如果仅仅是一些小改变，就触发整个渲染树的回流，这显然是不好的，为了避免这种情况，浏览器使用了脏位系统，只有一个渲染对象改变了或者某渲染对象及其子渲染对象脏位值为”dirty”时，说明需要回流。</p><p>重排（回流）：若渲染树的一部分更新，且尺寸变化，就会发生重排(只要修改DOM或修改了元素的形状或大小，就会发生重排)。<br>重绘：部分节点需要更新，但不改变其他集合形状。如改变某个元素的颜色，就会发生重绘。 </p><p>1.重绘和重排何时会发生：</p><p>（1）增加或删除DOM节点；<br>（2）display:none（重排并重绘）；visibility:hidden（重排）；<br>（3）移动页面中的元素；<br>（4）增加或修改样式；<br>（5）用户改变窗口大小，滚动页面等。<br>2.如何减少重绘和重排以提升页面性能：<br>（1）不要一个个修改属性，应通过一个class来修改<br>错误写法：div.style.width=”50px”;div.style.top=”60px”;<br>正确写法：div.className+=” modify”;</p><p>（2）clone节点，在副本中修改，然后直接替换当前的节点；<br>（3）若要频繁获取计算后的样式，请暂存起来；<br>（4）降低受影响的节点：在页面顶部插入节点将影响后续所有节点。而绝对定位的元素改变会影响较少的元素；<br>（5）批量添加DOM：多个DOM插入或修改，应组成一个长的字符串后一次性放入DOM。使用innerHTML永远比DOM操作快。（特别注意：innerHTML不会执行字符串中的嵌入脚本，因此不会产生XSS漏洞）。</p><h2 id="脚本处理"><a href="#脚本处理" class="headerlink" title="脚本处理"></a>脚本处理</h2><p>浏览器解析文档，当遇到script标签的时候，会立即解析脚本，停止解析文档（因为JS可能会改动DOM和CSS所以继续解析会造成浪费）。</p><p>如果脚本是外部的，会等待脚本下载完毕，再继续解析文档。现在可以在script标签上增加属性 defer或者async。</p><p>async 属性规定一旦脚本可用，则会异步执行。<br>注释：async 属性仅适用于外部脚本（只有在使用 src 属性时）。<br>注释：有多种执行外部脚本的方法：</p><ul><li>如果 async=”async”：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）</li><li>如果不使用 async 且 defer=”defer”：脚本将在页面完成解析时执行</li><li>如果既不使用 async 也不使用 defer：在浏览器继续解析页面之前，立即读取并执行脚本</li></ul><p>脚本解析会将脚本中改变DOM和CSS的地方分别解析出来，追加到DOM Tree和Style Rules上。</p><h2 id="页面渲染优化"><a href="#页面渲染优化" class="headerlink" title="页面渲染优化"></a>页面渲染优化</h2><p>浏览器对上文介绍的关键渲染路径进行了很多优化，针对每一次变化产生尽量少的操作，还有优化判断重新绘制或布局的方式等等。</p><p>在改变文档根元素的字体颜色等视觉性信息时，会触发整个文档的重绘，而改变某元素的字体颜色则只触发特定元素的重绘；改变元素的位置信息会同时触发此元素（可能还包括其兄弟元素或子级元素）的布局和重绘。某些重大改变，如更改文档根元素的字体尺寸，则会触发整个文档的重新布局和重绘，据此及上文所述，推荐以下优化和实践：</p><ol><li>HTML文档结构层次尽量少，最好不深于六层。（代码结构良好）</li><li>脚本尽量后放，放在body标签前即可。</li><li>少量首屏样式内联放在标签内。</li><li>样式结构层次尽量简单。</li><li>在脚本中尽量减少DOM操作，尽量缓存访问DOM的样式信息，避免过度触发回流。</li><li>减少通过JavaScript代码修改元素样式，尽量使用修改class名方式操作样式或动画。</li><li>动画尽量使用在绝对定位或固定定位的元素上,这样不会影响其他元素的布局。</li><li>隐藏在屏幕外，或在页面滚动时，尽量停止动画。</li><li>尽量缓存DOM查找，查找器尽量简洁。</li><li>涉及多域名的网站，可以开启域名预解析。<br>11.避免后代选择符，尽量使用子选择符。原因：子元素匹配符的概率要大于后代元素匹配符。后代选择符;#tp p{} 子选择符：#tp&gt;p{}<br>12.避免使用通配符，举一个例子，.mod .hd *{font-size:14px;} 根据匹配顺序,将首先匹配通配符,也就是说先匹配出通配符,然后匹配.hd（就是要对dom树上的所有节点进行遍历他的父级元素）,然后匹配.mod,这样的性能耗费可想而知.</li></ol><p>参考文章：</p><p>1.<a href="http://caibaojian.com/css-reflow-repaint.html" target="_blank" rel="noopener">优化CSS重排重绘与浏览器性能</a><br>2.<a href="https://www.cnblogs.com/CandyManPing/p/6635008.html" target="_blank" rel="noopener">web页面加载、解析、渲染过程</a><br>3.<a href="http://www.jb51.net/article/105026.htm" target="_blank" rel="noopener">详解浏览器渲染页面过程</a><br>4.<a href="https://www.cnblogs.com/xp796/p/5236945.html" target="_blank" rel="noopener">25种提高网页加载速度的方法和技巧</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;浏览器渲染页面过程&quot;&gt;&lt;a href=&quot;#浏览器渲染页面过程&quot; class=&quot;headerlink&quot; title=&quot;浏览器渲染页面过程&quot;&gt;&lt;/a&gt;浏览器渲染页面过程&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://ws4.sinaimg.cn/large/006tKfTcly1fqi01dtluwj30jx0gadgz.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+      &lt;h2 id=&quot;浏览器渲染页面过程&quot;&gt;&lt;a href=&quot;#浏览器渲染页面过程&quot; class=&quot;headerlink&quot; title=&quot;浏览器渲染页面过程&quot;&gt;&lt;/a&gt;浏览器渲染页面过程&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://ws4.sinaimg.cn/large/006tKfTcly1fqi01dtluwj30jx0gadgz.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
     
     </summary>
     
@@ -61,9 +61,9 @@
       <category term="html5" scheme="http://yoursite.com/categories/html5/"/>
     
     
-      <category term="html5" scheme="http://yoursite.com/tags/html5/"/>
-    
       <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+      <category term="html5" scheme="http://yoursite.com/tags/html5/"/>
     
       <category term="jquery" scheme="http://yoursite.com/tags/jquery/"/>
     
@@ -147,7 +147,7 @@
     <link href="http://yoursite.com/2018/04/16/IE%E5%85%BC%E5%AE%B9angular%E9%A1%B9%E7%9B%AE/"/>
     <id>http://yoursite.com/2018/04/16/IE兼容angular项目/</id>
     <published>2018-04-16T05:13:41.000Z</published>
-    <updated>2018-04-17T05:23:21.758Z</updated>
+    <updated>2018-04-19T09:41:21.909Z</updated>
     
     <content type="html"><![CDATA[<h2 id="angular-cli-生成的项目默认不能很好的支持IE浏览器"><a href="#angular-cli-生成的项目默认不能很好的支持IE浏览器" class="headerlink" title="@angular/cli 生成的项目默认不能很好的支持IE浏览器"></a>@angular/cli 生成的项目默认不能很好的支持IE浏览器</h2><h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><h3 id="polifill-ts文件"><a href="#polifill-ts文件" class="headerlink" title="polifill.ts文件"></a>polifill.ts文件</h3><p>手动安装两个依赖</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install classlist.js --save</span><br><span class="line">$ npm install web-animations-js --save</span><br></pre></td></tr></table></figure><p>装好后，重新ng serve </p>]]></content>
     
@@ -160,10 +160,10 @@
     
     </summary>
     
-      <category term="angular" scheme="http://yoursite.com/categories/angular/"/>
+      <category term="angular2" scheme="http://yoursite.com/categories/angular2/"/>
     
     
-      <category term="angular" scheme="http://yoursite.com/tags/angular/"/>
+      <category term="angular2" scheme="http://yoursite.com/tags/angular2/"/>
     
   </entry>
   
@@ -346,33 +346,6 @@
   </entry>
   
   <entry>
-    <title>如何利用css3实现图片菱形裁剪</title>
-    <link href="http://yoursite.com/2018/04/11/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8css3%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E8%8F%B1%E5%BD%A2%E8%A3%81%E5%89%AA/"/>
-    <id>http://yoursite.com/2018/04/11/如何利用css3实现图片菱形裁剪/</id>
-    <published>2018-04-11T07:52:40.000Z</published>
-    <updated>2018-04-15T01:32:43.111Z</updated>
-    
-    <content type="html"><![CDATA[<p>就像我的<a href="https://liyue2018.github.io/" target="_blank" rel="noopener">博客</a>头像这样,利用纯css3，把它裁剪为菱形吧！当然利用图像处理软件，也可以很快完成这样的效果。但是当你想要修改图片风格时，就没有那么便利了。</p><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fqa6obgjdaj307i05mmxi.jpg" alt="菱形图片"><br><a id="more"></a></p><h2 id="第一种实现方式-rotate"><a href="#第一种实现方式-rotate" class="headerlink" title="第一种实现方式 rotate()"></a>第一种实现方式 rotate()</h2><h3 id="rotate"><a href="#rotate" class="headerlink" title="rotate()"></a>rotate()</h3><p>图片外面需要用一个div包裹，利用rotate()实现。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"pic"</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"/images/author.jpg"</span> alt=<span class="string">"..."</span> /&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">// css </span><br><span class="line"></span><br><span class="line">.pic &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    transform: rotate(45deg);</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">.pic &gt; img &#123;</span><br><span class="line">    max-width: 100%;</span><br><span class="line">    transform: rotate(-45deg) scale(1.42);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这种方法只对正方形有效，并且需要添加额外的HTML标签，不够简洁。 </p><p>如果用 scale() 变形样式来把这个图片放大，实际上会更加合理，原因如下：<br>1.我们希望图片的尺寸属性保留 100% 这个值，这样当浏览器不支持变形样式时仍然可以得到一个合理的布局。<br>2.通过 scale() 变形样式来缩放图片时，是以它的中心点进行缩放的 (除非我们额外指定了 transform-origin 样式)。</p><h2 id="第二种实现方式-clip-path"><a href="#第二种实现方式-clip-path" class="headerlink" title="第二种实现方式 clip-path"></a>第二种实现方式 clip-path</h2><h3 id="clip-path"><a href="#clip-path" class="headerlink" title="clip-path"></a>clip-path</h3><p>首先让我们简单了解一下clip-path,更具体的可以点这里<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path#Browser_compatibility" target="_blank" rel="noopener">clip-path</a>。</p><p>clip-path属性可以创建一个只有元素的部分区域可以显示的剪切区域。区域内的部分显示，区域外的隐藏。clip-path属性代替了现在已经弃用的剪切 clip属性。</p><p>在这里我们将使用polygon()函数来实现菱形。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);</span><br></pre></td></tr></table></figure><h3 id="结合-hover伪类实现动画效果"><a href="#结合-hover伪类实现动画效果" class="headerlink" title="结合:hover伪类实现动画效果"></a>结合:hover伪类实现动画效果</h3><p>如果我们希望图片在鼠标悬停时平滑地扩展为完整的面积，可以结合:hover伪类来实现。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); </span><br><span class="line">   transition: 1s clip-path;</span><br><span class="line">&#125;</span><br><span class="line">img:hover &#123;</span><br><span class="line">   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参考文献：</p><p>本博客 css3效果实现部分，参照书籍<a href="http://www.ituring.com.cn/book/1695" target="_blank" rel="noopener">《css揭秘》</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;就像我的&lt;a href=&quot;https://liyue2018.github.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;博客&lt;/a&gt;头像这样,利用纯css3，把它裁剪为菱形吧！当然利用图像处理软件，也可以很快完成这样的效果。但是当你想要修改图片风格时，就没有那么便利了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/large/006tNc79ly1fqa6obgjdaj307i05mmxi.jpg&quot; alt=&quot;菱形图片&quot;&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="css3" scheme="http://yoursite.com/categories/css3/"/>
-    
-    
-      <category term="css3" scheme="http://yoursite.com/tags/css3/"/>
-    
-      <category term="clip-path" scheme="http://yoursite.com/tags/clip-path/"/>
-    
-      <category term="rotate" scheme="http://yoursite.com/tags/rotate/"/>
-    
-  </entry>
-  
-  <entry>
     <title>box-shadow实现的投影效果</title>
     <link href="http://yoursite.com/2018/04/11/box-shadow%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%8A%95%E5%BD%B1%E6%95%88%E6%9E%9C/"/>
     <id>http://yoursite.com/2018/04/11/box-shadow实现的投影效果/</id>
@@ -397,6 +370,33 @@
       <category term="css3" scheme="http://yoursite.com/tags/css3/"/>
     
       <category term="box-shadow" scheme="http://yoursite.com/tags/box-shadow/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何利用css3实现图片菱形裁剪</title>
+    <link href="http://yoursite.com/2018/04/11/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8css3%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E8%8F%B1%E5%BD%A2%E8%A3%81%E5%89%AA/"/>
+    <id>http://yoursite.com/2018/04/11/如何利用css3实现图片菱形裁剪/</id>
+    <published>2018-04-11T07:52:40.000Z</published>
+    <updated>2018-04-15T01:32:43.111Z</updated>
+    
+    <content type="html"><![CDATA[<p>就像我的<a href="https://liyue2018.github.io/" target="_blank" rel="noopener">博客</a>头像这样,利用纯css3，把它裁剪为菱形吧！当然利用图像处理软件，也可以很快完成这样的效果。但是当你想要修改图片风格时，就没有那么便利了。</p><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fqa6obgjdaj307i05mmxi.jpg" alt="菱形图片"><br><a id="more"></a></p><h2 id="第一种实现方式-rotate"><a href="#第一种实现方式-rotate" class="headerlink" title="第一种实现方式 rotate()"></a>第一种实现方式 rotate()</h2><h3 id="rotate"><a href="#rotate" class="headerlink" title="rotate()"></a>rotate()</h3><p>图片外面需要用一个div包裹，利用rotate()实现。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"pic"</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"/images/author.jpg"</span> alt=<span class="string">"..."</span> /&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">// css </span><br><span class="line"></span><br><span class="line">.pic &#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    transform: rotate(45deg);</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">.pic &gt; img &#123;</span><br><span class="line">    max-width: 100%;</span><br><span class="line">    transform: rotate(-45deg) scale(1.42);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这种方法只对正方形有效，并且需要添加额外的HTML标签，不够简洁。 </p><p>如果用 scale() 变形样式来把这个图片放大，实际上会更加合理，原因如下：<br>1.我们希望图片的尺寸属性保留 100% 这个值，这样当浏览器不支持变形样式时仍然可以得到一个合理的布局。<br>2.通过 scale() 变形样式来缩放图片时，是以它的中心点进行缩放的 (除非我们额外指定了 transform-origin 样式)。</p><h2 id="第二种实现方式-clip-path"><a href="#第二种实现方式-clip-path" class="headerlink" title="第二种实现方式 clip-path"></a>第二种实现方式 clip-path</h2><h3 id="clip-path"><a href="#clip-path" class="headerlink" title="clip-path"></a>clip-path</h3><p>首先让我们简单了解一下clip-path,更具体的可以点这里<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path#Browser_compatibility" target="_blank" rel="noopener">clip-path</a>。</p><p>clip-path属性可以创建一个只有元素的部分区域可以显示的剪切区域。区域内的部分显示，区域外的隐藏。clip-path属性代替了现在已经弃用的剪切 clip属性。</p><p>在这里我们将使用polygon()函数来实现菱形。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);</span><br></pre></td></tr></table></figure><h3 id="结合-hover伪类实现动画效果"><a href="#结合-hover伪类实现动画效果" class="headerlink" title="结合:hover伪类实现动画效果"></a>结合:hover伪类实现动画效果</h3><p>如果我们希望图片在鼠标悬停时平滑地扩展为完整的面积，可以结合:hover伪类来实现。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); </span><br><span class="line">   transition: 1s clip-path;</span><br><span class="line">&#125;</span><br><span class="line">img:hover &#123;</span><br><span class="line">   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参考文献：</p><p>本博客 css3效果实现部分，参照书籍<a href="http://www.ituring.com.cn/book/1695" target="_blank" rel="noopener">《css揭秘》</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;就像我的&lt;a href=&quot;https://liyue2018.github.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;博客&lt;/a&gt;头像这样,利用纯css3，把它裁剪为菱形吧！当然利用图像处理软件，也可以很快完成这样的效果。但是当你想要修改图片风格时，就没有那么便利了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/large/006tNc79ly1fqa6obgjdaj307i05mmxi.jpg&quot; alt=&quot;菱形图片&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="css3" scheme="http://yoursite.com/categories/css3/"/>
+    
+    
+      <category term="css3" scheme="http://yoursite.com/tags/css3/"/>
+    
+      <category term="clip-path" scheme="http://yoursite.com/tags/clip-path/"/>
+    
+      <category term="rotate" scheme="http://yoursite.com/tags/rotate/"/>
     
   </entry>
   
