@@ -105,7 +105,7 @@
 <meta property="og:description" content="浏览器渲染页面过程">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fqi01dtluwj30jx0gadgz.jpg">
-<meta property="og:updated_time" content="2018-04-19T07:53:55.430Z">
+<meta property="og:updated_time" content="2018-04-19T09:33:38.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器页面渲染机制和页面优化">
 <meta name="twitter:description" content="浏览器渲染页面过程">
@@ -434,16 +434,16 @@
 <p>浏览器对上文介绍的关键渲染路径进行了很多优化，针对每一次变化产生尽量少的操作，还有优化判断重新绘制或布局的方式等等。</p>
 <p>在改变文档根元素的字体颜色等视觉性信息时，会触发整个文档的重绘，而改变某元素的字体颜色则只触发特定元素的重绘；改变元素的位置信息会同时触发此元素（可能还包括其兄弟元素或子级元素）的布局和重绘。某些重大改变，如更改文档根元素的字体尺寸，则会触发整个文档的重新布局和重绘，据此及上文所述，推荐以下优化和实践：</p>
 <ol>
-<li>HTML文档结构层次尽量少，最好不深于六层；</li>
-<li>脚本尽量后放，放在前即可；</li>
-<li>少量首屏样式内联放在标签内；</li>
-<li>样式结构层次尽量简单；</li>
-<li>在脚本中尽量减少DOM操作，尽量缓存访问DOM的样式信息，避免过度触发回流；</li>
-<li>减少通过JavaScript代码修改元素样式，尽量使用修改class名方式操作样式或动画；</li>
-<li>动画尽量使用在绝对定位或固定定位的元素上；</li>
-<li>隐藏在屏幕外，或在页面滚动时，尽量停止动画；</li>
-<li>尽量缓存DOM查找，查找器尽量简洁；</li>
-<li>涉及多域名的网站，可以开启域名预解析</li>
+<li>HTML文档结构层次尽量少，最好不深于六层。</li>
+<li>脚本尽量后放，放在body标签前即可。</li>
+<li>少量首屏样式内联放在标签内。</li>
+<li>样式结构层次尽量简单。</li>
+<li>在脚本中尽量减少DOM操作，尽量缓存访问DOM的样式信息，避免过度触发回流。</li>
+<li>减少通过JavaScript代码修改元素样式，尽量使用修改class名方式操作样式或动画。</li>
+<li>动画尽量使用在绝对定位或固定定位的元素上。</li>
+<li>隐藏在屏幕外，或在页面滚动时，尽量停止动画。</li>
+<li>尽量缓存DOM查找，查找器尽量简洁。</li>
+<li>涉及多域名的网站，可以开启域名预解析。</li>
 </ol>
 </script></p>
       
