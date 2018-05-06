@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="css,javascript,html," />
+  <meta name="keywords" content="css,html,javascript," />
 
 
 
@@ -97,7 +97,7 @@
 
 
 <meta name="description" content="浏览器渲染页面过程">
-<meta name="keywords" content="css,javascript,html">
+<meta name="keywords" content="css,html,javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器页面渲染机制和页面优化">
 <meta property="og:url" content="http://yoursite.com/2018/04/19/浏览器页面渲染机制和页面优化/index.html">
@@ -105,7 +105,7 @@
 <meta property="og:description" content="浏览器渲染页面过程">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fqi01dtluwj30jx0gadgz.jpg">
-<meta property="og:updated_time" content="2018-04-19T10:17:48.202Z">
+<meta property="og:updated_time" content="2018-05-05T07:29:09.636Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器页面渲染机制和页面优化">
 <meta name="twitter:description" content="浏览器渲染页面过程">
@@ -382,7 +382,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,879
+                  1,974
                 </span>
               
 
@@ -427,8 +427,8 @@
 <p>如果脚本是外部的，会等待脚本下载完毕，再继续解析文档。现在可以在script标签上增加属性 defer或者async。</p>
 <p>async 属性规定一旦脚本可用，则会异步执行。<br>注释：async 属性仅适用于外部脚本（只有在使用 src 属性时）。<br>注释：有多种执行外部脚本的方法：</p>
 <ul>
-<li>如果 async=”async”：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）</li>
-<li>如果不使用 async 且 defer=”defer”：脚本将在页面完成解析时执行</li>
+<li>如果 async=”async”：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）<br>乱序为主，（反正对它来说脚本的加载和执行是紧紧挨着的）所以不管你声明的顺序如何，只要它加载完了就会立刻执行。async 对于应用脚本的用处不大，因为它完全不考虑依赖（哪怕是最低级的顺序执行）。</li>
+<li>如果不使用 async 且 defer=”defer”：脚本将在页面完成解析时执行。它是按照加载顺序执行脚本的。</li>
 <li>如果既不使用 async 也不使用 defer：在浏览器继续解析页面之前，立即读取并执行脚本</li>
 </ul>
 <p>脚本解析会将脚本中改变DOM和CSS的地方分别解析出来，追加到DOM Tree和Style Rules上。</p>
@@ -484,9 +484,9 @@
           
             <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
           
-            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
-          
             <a href="/tags/html/" rel="tag"><i class="fa fa-tag"></i> html</a>
+          
+            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
           
         </div>
       
@@ -696,7 +696,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共16.8k字</span>
+  <span class="post-count">博客全站共17.6k字</span>
 </div>
 
 
