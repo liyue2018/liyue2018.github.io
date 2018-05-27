@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Cnly小姐的博客">
 <meta property="og:description" content="jQuery 优点隐式迭代jQuery会自己遍历，不需要我们遍历。 当用JQuery找到带有”.class”类的全部元素,然后隐藏它们时,无需循环遍历每个返回的元素. 轻量级.JQuery非常小,压缩包只有18KB左右. 强大的选择器.JQuery不仅支持CSS里的所有选择器,还有JQuery独有的选择器.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-22T04:44:49.736Z">
+<meta property="og:updated_time" content="2018-05-27T08:13:42.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery相关知识点">
 <meta name="twitter:description" content="jQuery 优点隐式迭代jQuery会自己遍历，不需要我们遍历。 当用JQuery找到带有”.class”类的全部元素,然后隐藏它们时,无需循环遍历每个返回的元素. 轻量级.JQuery非常小,压缩包只有18KB左右. 强大的选择器.JQuery不仅支持CSS里的所有选择器,还有JQuery独有的选择器.">
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  4,762
+                  4,821
                 </span>
               
 
@@ -486,7 +486,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//筛选选择器会改变jQuery对象的DOM对象，它会回到之前的对象。</span><br><span class="line">end();</span><br><span class="line">//会回到this这个对象上</span><br><span class="line">$(this).text(<span class="string">''</span>).prevAll().text(<span class="string">''</span>).end().nextAll().text(<span class="string">'empty'</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="jQuery-each方法"><a href="#jQuery-each方法" class="headerlink" title="jQuery each方法"></a>jQuery each方法</h3><p>jQuery的隐式迭代会对所有的DOM对象设置相同的值，但是如果我们需要给每一个对象设置不同的值的时候，就需要自己进行迭代。</p>
 <p>作用：遍历jQuery对象集合，为每一个匹配的元素执行一个函数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//参数一表示当前元素在所有匹配元素中的索引号</span><br><span class="line">//参数二表示当前元素(DOM对象)</span><br><span class="line"></span><br><span class="line">$(selector).each(<span class="keyword">function</span>(index,element)&#123;&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//参数一表示当前元素在所有匹配元素中的索引号</span><br><span class="line">//参数二表示当前元素(DOM对象)</span><br><span class="line"></span><br><span class="line">$(selector).each(<span class="keyword">function</span>(index,element)&#123;&#125;);</span><br><span class="line"></span><br><span class="line">//jQuery对象的遍历 两种方法</span><br><span class="line">//<span class="keyword">for</span>循环</span><br><span class="line">// <span class="keyword">for</span>(var i = 0; i &lt; $(<span class="string">'.opacity-wrapper li'</span>).length;i++)&#123;</span><br><span class="line">//     $(<span class="string">'.opacity-wrapper li'</span>).eq(i).css(<span class="string">'opacity'</span>,(i+1)/10);</span><br><span class="line">// &#125;</span><br><span class="line">//each方法</span><br><span class="line">$(<span class="string">'.opacity-wrapper li'</span>).each(<span class="keyword">function</span>(index,element)&#123;</span><br><span class="line">    $(element).css(<span class="string">'opacity'</span>,(index + 1) / 10);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="多库共存"><a href="#多库共存" class="headerlink" title="多库共存"></a>多库共存</h3><p>jQuery使用$作为标志，但是如果与其他框架中的$冲突时，jQuery可以释放$符的控制权。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//释放$的控制权，并且把$的能力给了jQuery</span><br><span class="line">var jQuery = $.noConflict();</span><br></pre></td></tr></table></figure>
 <h2 id="jQuery插件"><a href="#jQuery插件" class="headerlink" title="jQuery插件"></a>jQuery插件</h2><h3 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h3><p>1.jquery.color.js<br>2.jquery.lazyload.js<br>3.jquery.ui.js</p>
@@ -736,7 +736,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共21.0k字</span>
+  <span class="post-count">博客全站共24.5k字</span>
 </div>
 
 
