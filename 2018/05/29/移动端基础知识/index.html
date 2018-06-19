@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fs16eyo4gqj30oc096gnk.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fs17dpfurnj30no042dij.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fs33nuayv1j30ki0ew7a2.jpg">
-<meta property="og:updated_time" content="2018-06-09T03:30:39.132Z">
+<meta property="og:updated_time" content="2018-06-19T03:49:31.313Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端基础知识">
 <meta name="twitter:description" content="像素密度PPI(Pixels Per Inch) 值来表示屏幕每英寸的像素数量 DPI在Android设备比较常见 我们以iPhone4为例来计算PPI  123456&amp;lt;!-- 像素和设备独立像素的关系 --&amp;gt;alert(window.devicePixelRatio);&amp;lt;!-- 屏幕物理素尺 --&amp;gt;window.screen.widthwindow.screen.heig">
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,470
+                  1,533
                 </span>
               
 
@@ -449,6 +449,7 @@
 <p>min-width: 在pc端和期望值一样 当前可视区的宽度 — pc端, 移动端<br>min-device-width: 在移动端和期望值一样。当改变浏览器大小时，当前终端宽度并不会变化，意味着媒体查询条件并不会响应。 – 移动端<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 宽度768px ~ 992px</span><br><span class="line">@media screen and (max-width: 768px) and (max-width: 992px) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">// 使用媒体查询调用样式</span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> media=<span class="string">"screen and (min-width:992px) and (max-width: 1200px)"</span> href=<span class="string">"b.css"</span>&gt;</span><br></pre></td></tr></table></figure></p>
 <h3 id="em-rem"><a href="#em-rem" class="headerlink" title="em rem"></a>em rem</h3><p>em: 一种长度单位，参照当前元素的字号，如果没有设置，参照父元素或浏览器的默认字号<br>rem: css3新增长度单位 它参照(html)的字号</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">    font-size: 16px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (min-width: 375px) &#123;</span><br><span class="line">    html &#123;</span><br><span class="line">        /* iPhone6的375px尺寸作为16px基准，414px正好18px大小, 600 20px */</span><br><span class="line">        font-size: calc(100% + 2 * (100vw - 375px) / 39);</span><br><span class="line">        font-size: calc(16px + 2 * (100vw - 375px) / 39);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@media screen and (min-width: 414px) &#123;</span><br><span class="line">    html &#123;</span><br><span class="line">        /* 414px-1000px每100像素宽字体增加1px(18px-22px) */</span><br><span class="line">        font-size: calc(112.5% + 4 * (100vw - 414px) / 586);</span><br><span class="line">        font-size: calc(18px + 4 * (100vw - 414px) / 586);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@media screen and (min-width: 600px) &#123;</span><br><span class="line">    html &#123;</span><br><span class="line">        /* 600px-1000px每100像素宽字体增加1px(20px-24px) */</span><br><span class="line">        font-size: calc(125% + 4 * (100vw - 600px) / 400);</span><br><span class="line">        font-size: calc(20px + 4 * (100vw - 600px) / 400);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@media screen and (min-width: 1000px) &#123;</span><br><span class="line">    html &#123;</span><br><span class="line">        /* 1000px往后是每100像素0.5px增加 */</span><br><span class="line">        font-size: calc(137.5% + 6 * (100vw - 1000px) / 1000);</span><br><span class="line">        font-size: calc(22px + 6 * (100vw - 1000px) / 1000);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="js-动态改变根节点-html-的-fontsize"><a href="#js-动态改变根节点-html-的-fontsize" class="headerlink" title="js 动态改变根节点 html 的 fontsize"></a>js 动态改变根节点 html 的 fontsize</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 1rem = 100px 1em = 32px --&gt;</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    rootFontSize();</span><br><span class="line">    &lt;!-- 改变窗口大小 --&gt;</span><br><span class="line"></span><br><span class="line">    window.onresize = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        rootFontSize();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">rootFontSize</span></span>() &#123;</span><br><span class="line">    var deviceWidth = document.documentElement.clientWidth;</span><br><span class="line">    <span class="keyword">if</span> (deviceWidth &gt; 750) deviceWidth = 750;</span><br><span class="line">    document.documentElement.style.fontsize = deviceWidth / 7.5 + <span class="string">'px'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -504,6 +505,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/17/webpack/" rel="prev" title="webpack">
+                webpack <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -580,7 +585,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -602,7 +607,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -644,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#像素密度"><span class="nav-number">1.</span> <span class="nav-text">像素密度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#像素"><span class="nav-number">1.1.</span> <span class="nav-text">像素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试"><span class="nav-number">2.</span> <span class="nav-text">调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视口"><span class="nav-number">3.</span> <span class="nav-text">视口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕适配"><span class="nav-number">4.</span> <span class="nav-text">屏幕适配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触屏事件"><span class="nav-number">5.</span> <span class="nav-text">触屏事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件类型"><span class="nav-number">5.1.</span> <span class="nav-text">事件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TouchEvent对象"><span class="nav-number">5.2.</span> <span class="nav-text">TouchEvent对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义zepto"><span class="nav-number">5.3.</span> <span class="nav-text">自定义zepto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#click-延时"><span class="nav-number">5.4.</span> <span class="nav-text">click 延时</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端插件库"><span class="nav-number">6.</span> <span class="nav-text">移动端插件库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式开发"><span class="nav-number">7.</span> <span class="nav-text">响应式开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网页布局方式"><span class="nav-number">7.1.</span> <span class="nav-text">网页布局方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#em-rem"><span class="nav-number">7.2.</span> <span class="nav-text">em rem</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#像素密度"><span class="nav-number">1.</span> <span class="nav-text">像素密度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#像素"><span class="nav-number">1.1.</span> <span class="nav-text">像素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试"><span class="nav-number">2.</span> <span class="nav-text">调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视口"><span class="nav-number">3.</span> <span class="nav-text">视口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕适配"><span class="nav-number">4.</span> <span class="nav-text">屏幕适配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触屏事件"><span class="nav-number">5.</span> <span class="nav-text">触屏事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件类型"><span class="nav-number">5.1.</span> <span class="nav-text">事件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TouchEvent对象"><span class="nav-number">5.2.</span> <span class="nav-text">TouchEvent对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义zepto"><span class="nav-number">5.3.</span> <span class="nav-text">自定义zepto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#click-延时"><span class="nav-number">5.4.</span> <span class="nav-text">click 延时</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端插件库"><span class="nav-number">6.</span> <span class="nav-text">移动端插件库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式开发"><span class="nav-number">7.</span> <span class="nav-text">响应式开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网页布局方式"><span class="nav-number">7.1.</span> <span class="nav-text">网页布局方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#em-rem"><span class="nav-number">7.2.</span> <span class="nav-text">em rem</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-动态改变根节点-html-的-fontsize"><span class="nav-number">8.</span> <span class="nav-text">js 动态改变根节点 html 的 fontsize</span></a></li></ol></div>
             
 
           </div>
@@ -688,7 +693,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共31.0k字</span>
+  <span class="post-count">博客全站共34.7k字</span>
 </div>
 
 
