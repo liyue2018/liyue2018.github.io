@@ -383,7 +383,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  3,628
+                  4,833
                 </span>
               
 
@@ -454,7 +454,7 @@
 </li>
 <li><p>cnpm i <a href="mailto:webpack-dev-server@2.9.3" target="_blank" rel="noopener">webpack-dev-server@2.9.3</a> -D  自动打包编译刷新页面的包</p>
 </li>
-<li><p>cnpm i html-webpack-plugin -D 在内存中生成html文件</p>
+<li><p>cnpm i html-webpack-plugin -D 在内存中生成html文件,自动在页面添加script 标签，加载bundle.js</p>
 </li>
 <li><p>cnpm i style-loader css-loader -D 处理 css 文件</p>
 </li>
@@ -546,8 +546,214 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- <span class="built_in">export</span> default 导出 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- test.js --&gt;</span><br><span class="line"></span><br><span class="line">var info = &#123;</span><br><span class="line">    name: <span class="string">'zs'</span>,</span><br><span class="line">    age: 20</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default info </span><br><span class="line"></span><br><span class="line">&lt;!-- main.js 接收 --&gt;</span><br><span class="line"></span><br><span class="line">import m222 from <span class="string">'./test.js'</span></span><br><span class="line"></span><br><span class="line">console.log(m222)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!-- 导出 --&gt;</span><br><span class="line"><span class="built_in">export</span> var title = <span class="string">'hello'</span></span><br><span class="line"><span class="built_in">export</span> var content = <span class="string">'world'</span></span><br><span class="line"></span><br><span class="line">&lt;!-- 接收 --&gt;</span><br><span class="line">注意：</span><br><span class="line">import m222, &#123; title, content &#125; from <span class="string">'./test.js'</span></span><br><span class="line"></span><br><span class="line">console.log(m222);//&#123;name:<span class="string">'zs'</span>,age:<span class="string">'20'</span>&#125;</span><br><span class="line">console.log(title + <span class="string">' ---- '</span> + content);//hello ---- world</span><br></pre></td></tr></table></figure>
 <p>在node中使用 var 名称 = require(‘模块标识符’)</p>
 <p>module.exports 和 exports 来暴露成员</p>
+<h2 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h2><p>npm i vue-router -S  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- login.vue --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- lang=<span class="string">"scss"</span> 可以使用sass  --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- scoped 只在组件内部有效 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=<span class="string">"scss"</span> scoped&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="ES6中-promise"><a href="#ES6中-promise" class="headerlink" title="ES6中 promise"></a>ES6中 promise</h2><p>Promise 本质就是单纯的解决回调地狱问题，并不能减少代码量，把多层的嵌套改造成串联形式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- 回调地狱 --&gt;</span><br><span class="line">getFilePath(path.join(__dirname,<span class="string">'./file/1.txt'</span>, <span class="keyword">function</span>(data) &#123;</span><br><span class="line">        console.log(data)</span><br><span class="line">        getFilePath(path.join(__dirname,<span class="string">'./filename/2.txt'</span>, <span class="keyword">function</span>(data) &#123;</span><br><span class="line">                console.log(data)</span><br><span class="line">                getFilePath(path.join(__dirname,<span class="string">'./filename/3.txt'</span>, <span class="keyword">function</span>(data) &#123;</span><br><span class="line">                    console.log(data)</span><br><span class="line">                &#125;)</span><br><span class="line"></span><br><span class="line">            &#125;))</span><br><span class="line">    &#125;))</span><br></pre></td></tr></table></figure>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><p>Promise 是一个构造函数，的Prototype 上，有一个 .then() 方法 </p>
+<p>new Promise() 构建一个新的实例 都可以使用 .then() 方法 上面有两个函数：</p>
+<p>reject() 失败后的回调函数</p>
+<p>resolve() 成功后的回调函数</p>
+<p>Promise 表示一个异步操作，每当我们new 一个 Promise 的实例，这个实例 就表示一个具体的异步操作</p>
+<p>那么，这个异步操作的结果只能有两种：</p>
+<p>状态1：异步执行成功 需要在内部调用 成功的回调函数 resolve 把结果返回给调用者<br>状态2：异步执行失败 需要在内部调用 失败的回调函数 reject 把结果返回给调用者</p>
+<p>由于 Promise 的实例是一个异步操作，所以内部拿到结果后，无法使用return 返回结果，这时候只能用回调函数，把成功或失败的结果，返回给调用者。</p>
+<p>在创建Promise实例时，可以调用 .then() 方法，【预先】为这个Promise 异步操作指导成功(resolve) 失败(reject) 回调函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 形式上的异步操作：我们只知道它是一个异步操作，但是做什么具体的异步事情，目前还不清楚 --&gt;</span><br><span class="line">var promise = new Promise();//这里 new 出来的promise 只是代表[形式上]的一个异步操作 </span><br><span class="line"></span><br><span class="line">const fs = require(<span class="string">'fs'</span>)</span><br><span class="line">&lt;!-- 具体的异步操作 --&gt;</span><br><span class="line"></span><br><span class="line">var promise = new Promise(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    &lt;!-- 这个<span class="keyword">function</span> 内部写的就是具体的异步操作 --&gt;</span><br><span class="line"></span><br><span class="line">    fs.readFile(<span class="string">'./files/2.txt'</span>, <span class="string">'utf-8'</span>, (err,dataStr) =&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) throw err</span><br><span class="line">        console.log(dataStr)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&lt;!-- 这里的<span class="keyword">function</span> 在new 一个 Promise实例后，会被立即调用 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 如果不想立即执行，需要使用函数包裹 --&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> getFilePath(fpath) &#123;</span><br><span class="line">    <span class="built_in">return</span> new Promise(<span class="keyword">function</span> (resolve, reject) &#123;</span><br><span class="line">    &lt;!-- 这个<span class="keyword">function</span> 内部写的就是具体的异步操作 --&gt;</span><br><span class="line"></span><br><span class="line">        fs.readFile(<span class="string">'./files/2.txt'</span>, <span class="string">'utf-8'</span>, (err,dataStr) =&gt; &#123;</span><br><span class="line">            &lt;!-- <span class="keyword">if</span> (err) throw err</span><br><span class="line">            console.log(dataStr) --&gt;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (err) <span class="built_in">return</span> reject(err)</span><br><span class="line"></span><br><span class="line">            resolve(dataStr)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    &lt;!-- <span class="built_in">return</span> promise  --&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 注意，通过.<span class="keyword">then</span> 指定的回调函数，成功的回调必须传，失败的回调可以不传 --&gt;</span><br><span class="line"></span><br><span class="line">getFilePath(<span class="string">'./files/2.txt'</span>).<span class="keyword">then</span>(<span class="keyword">function</span> (data) &#123;</span><br><span class="line">            console.log(data)</span><br><span class="line">        &#125;, <span class="keyword">function</span> (err) &#123;</span><br><span class="line">            console.log(err)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&lt;!-- 使用Promise 重写 地狱函数问题 --&gt;</span><br><span class="line">&lt;!-- 读取文件1 --&gt;</span><br><span class="line">getFilePath(<span class="string">'./files/1.txt'</span>)</span><br><span class="line">    .<span class="keyword">then</span>(<span class="keyword">function</span>(data) &#123;</span><br><span class="line">        console.log(data)</span><br><span class="line"></span><br><span class="line">        &lt;!-- 读取文件2 --&gt;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">return</span> getFilePath(<span class="string">'./files/2.txt'</span>)</span><br><span class="line">    &#125;, <span class="keyword">function</span> (err) &#123;// 如果不想影响后续的.<span class="keyword">then</span>,需要指定失败的回调函数</span><br><span class="line">            console.log(err.message)</span><br><span class="line">            <span class="built_in">return</span> getFilePath(<span class="string">'./files/2.txt'</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    .<span class="keyword">then</span>(functio(data) &#123;</span><br><span class="line">        console.log(data)</span><br><span class="line">        <span class="built_in">return</span> getFilePath(<span class="string">'./files/3.txt'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="keyword">then</span>(functio(data) &#123;</span><br><span class="line">        console.log(data)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&lt;!-- 如果任何一个.<span class="keyword">then</span> 失败，立即结束函数 --&gt;</span><br><span class="line">getFilePath(<span class="string">'./files/1.txt'</span>)</span><br><span class="line">    .<span class="keyword">then</span>(<span class="keyword">function</span>(data) &#123;</span><br><span class="line">        console.log(data)</span><br><span class="line"></span><br><span class="line">        &lt;!-- 读取文件2 --&gt;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">return</span> getFilePath(<span class="string">'./files/2.txt'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="keyword">then</span>(functio(data) &#123;</span><br><span class="line">        console.log(data)</span><br><span class="line">        <span class="built_in">return</span> getFilePath(<span class="string">'./files/3.txt'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="keyword">then</span>(functio(data) &#123;</span><br><span class="line">        console.log(data)</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="keyword">function</span> (err) &#123;// catch 作用：如果前面有任何的promise 执行失败，</span><br><span class="line">        // 则立即终止所有的promise 的执行，并马上进入 catch 去处理</span><br><span class="line">        // Promise中抛出的异常</span><br><span class="line">        console.log(<span class="string">'这是自己的处理方式'</span> + err.message)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="jquery-中-Ajax-使用-Promise"><a href="#jquery-中-Ajax-使用-Promise" class="headerlink" title="jquery 中 Ajax 使用 Promise"></a>jquery 中 Ajax 使用 Promise</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    $(<span class="string">'#btn'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: <span class="string">'./data.json'</span>,</span><br><span class="line">            <span class="built_in">type</span>: <span class="string">'get'</span>,</span><br><span class="line">            dataType: <span class="string">'json'</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">        .<span class="keyword">then</span>(<span class="keyword">function</span>(data) &#123;</span><br><span class="line">                console.log(data)</span><br><span class="line">            &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="vue-router-编程式导航"><a href="#vue-router-编程式导航" class="headerlink" title="vue-router 编程式导航"></a>vue-router 编程式导航</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 使用JS的形式进行路由导航 --&gt;</span><br><span class="line"></span><br><span class="line">this.<span class="variable">$route</span> 是路由参数对象，所有路由中的参数， params, query 都属于它</span><br><span class="line">this.<span class="variable">$router</span> 是一个路由导航对象，用它可以方便的使用JS 代码，实现路由的前进，后退 跳转到新的URL地址</span><br></pre></td></tr></table></figure>
+<h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><p>Vuex 是为了保存组件之间共享数据而诞生的，如果组件之间有要共享的数据，可以直接挂载到vuex中。</p>
+<p>props: 父组件传过来的数据</p>
+<p>data: 私有数据</p>
+<p>vuex: 组件间共有的数据  是一个数据的仓库，一个全局的共享数据存储区域</p>
+<p>vuex 是 Vue 配套的公共数据管理工具，它可以把一些共享的数据，保存到 vuesx 中，方便整个程序中的任何组件直接获取或修改我们的公共数据</p>
 
           
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/05/vue的学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liyue">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/liyue.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cnly小姐的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/05/vue的学习/" itemprop="url">vue.js</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T23:37:46+08:00">
+                2018-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/06/05/vue的学习/" class="leancloud_visitors" data-flag-title="vue.js">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  4,902
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h2><p>vue.js是目前最火的前端框架,是一套构建用户界面的框架，关注视图层。</p>
+<p>框架： 是一套完整的解决方案，对项目的侵入性较大。<br>库(插件)：提供某一个小功能，对项目的侵入性较小，可以很容易的切换到其他库实现需求。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/05/vue的学习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -916,7 +1122,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  8,438
+                  8,440
                 </span>
               
 
@@ -949,193 +1155,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/24/javascript的学习/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/28/date过滤器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Liyue">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/liyue.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cnly小姐的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/28/date过滤器/" itemprop="url">date过滤器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-28T16:45:36+08:00">
-                2018-04-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/angular2/" itemprop="url" rel="index">
-                    <span itemprop="name">angular2</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/04/28/date过滤器/" class="leancloud_visitors" data-flag-title="date过滤器">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  108
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="date过滤器使用"><a href="#date过滤器使用" class="headerlink" title="date过滤器使用"></a>date过滤器使用</h2><h3 id="date过滤器的用法"><a href="#date过滤器的用法" class="headerlink" title="date过滤器的用法"></a>date过滤器的用法</h3><p>在html中用法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; date_expression | date : format : timezone&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>实例：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;&#123;&#123;1288323623006 | date:<span class="string">'medium'</span>&#125;&#125;&lt;/span&gt;&lt;br&gt;</span><br><span class="line"></span><br><span class="line">&lt;span&gt;&#123;&#123;1288323623006 | date:<span class="string">'yyyy-MM-dd HH:mm:ss Z'</span>&#125;&#125;&lt;/span&gt;&lt;br&gt;</span><br><span class="line"></span><br><span class="line">&lt;span&gt;&#123;&#123;<span class="string">'1288323623006'</span> | date:<span class="string">'MM/dd/yyyy @ h:mma'</span>&#125;&#125;&lt;/span&gt;&lt;br&gt;</span><br><span class="line"></span><br><span class="line">&lt;span&gt;&#123;&#123;<span class="string">'1288323623006'</span> | date:<span class="string">"MM/dd/yyyy 'at' h:mma"</span>&#125;&#125;&lt;/span&gt;&lt;br&gt;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/28/date过滤器/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1231,7 +1250,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1242,7 +1261,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1253,7 +1272,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1323,7 +1342,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共34.7k字</span>
+  <span class="post-count">博客全站共40.8k字</span>
 </div>
 
 
