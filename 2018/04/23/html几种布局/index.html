@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Cnly小姐的博客">
 <meta property="og:description" content="前端的几种布局流式布局（html网页默认的布局方式）1、块状元素都会在所处的包含元素内自上而下按顺序垂直延伸分布，因为在默认状态下，块状元素的宽度都为100%。2、内联元素都会在所处的包含元素内从左到右水平分布显示。（内联元素可不像块状元素这么霸道独占一行） 浮动布局(float)默认布局下，块状元素这么霸道都是独占一行，如果现在我们想让两个块状元素并排显示。就需要使用float来实现。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-22T17:35:02.080Z">
+<meta property="og:updated_time" content="2018-07-04T02:25:04.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端的几种布局">
 <meta name="twitter:description" content="前端的几种布局流式布局（html网页默认的布局方式）1、块状元素都会在所处的包含元素内自上而下按顺序垂直延伸分布，因为在默认状态下，块状元素的宽度都为100%。2、内联元素都会在所处的包含元素内从左到右水平分布显示。（内联元素可不像块状元素这么霸道独占一行） 浮动布局(float)默认布局下，块状元素这么霸道都是独占一行，如果现在我们想让两个块状元素并排显示。就需要使用float来实现。">
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  586
+                  705
                 </span>
               
 
@@ -412,6 +412,11 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">    font-size: 16px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (min-width: 375px) &#123;</span><br><span class="line">    html &#123;</span><br><span class="line">        /* iPhone6的375px尺寸作为16px基准，414px正好18px大小, 600 20px */</span><br><span class="line">        font-size: calc(100% + 2 * (100vw - 375px) / 39);</span><br><span class="line">        font-size: calc(16px + 2 * (100vw - 375px) / 39);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@media screen and (min-width: 414px) &#123;</span><br><span class="line">    html &#123;</span><br><span class="line">        /* 414px-1000px每100像素宽字体增加1px(18px-22px) */</span><br><span class="line">        font-size: calc(112.5% + 4 * (100vw - 414px) / 586);</span><br><span class="line">        font-size: calc(18px + 4 * (100vw - 414px) / 586);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@media screen and (min-width: 600px) &#123;</span><br><span class="line">    html &#123;</span><br><span class="line">        /* 600px-1000px每100像素宽字体增加1px(20px-24px) */</span><br><span class="line">        font-size: calc(125% + 4 * (100vw - 600px) / 400);</span><br><span class="line">        font-size: calc(20px + 4 * (100vw - 600px) / 400);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@media screen and (min-width: 1000px) &#123;</span><br><span class="line">    html &#123;</span><br><span class="line">        /* 1000px往后是每100像素0.5px增加 */</span><br><span class="line">        font-size: calc(137.5% + 6 * (100vw - 1000px) / 1000);</span><br><span class="line">        font-size: calc(22px + 6 * (100vw - 1000px) / 1000);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后，就可以愉快地使用rem单位用来排版和布局啦！</p>
 <h3 id="Flex-弹性布局"><a href="#Flex-弹性布局" class="headerlink" title="Flex 弹性布局"></a>Flex 弹性布局</h3><p>Flexbox 是一维布局系统，适合做局部布局，比如导航栏组件。</p>
+<p>display: flex;  让父元素变成弹性布局，子元素默认水平排列。</p>
+<p>flex-direction: column; 让子元素垂直排列。 </p>
+<p>justify-content: center; 主轴对齐。<br>justify-content: space-between; 两边分布。</p>
+<p>align-items: center; 交叉轴对齐。<br>align-items: flex-end; 交叉轴对齐。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 水平垂直居中 --&gt;</span><br><span class="line">&lt;!-- html --&gt;</span><br><span class="line">&lt;div class=<span class="string">"parent"</span>&gt;</span><br><span class="line">    &lt;div class=<span class="string">"son&gt;</span></span><br><span class="line"><span class="string">        flex</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;!-- css --&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">.parent &#123;</span></span><br><span class="line"><span class="string">    display: flex; </span></span><br><span class="line"><span class="string">    align-items: center;/*垂直居中*/</span></span><br><span class="line"><span class="string">    justify-content: center;/*水平居中*/</span></span><br><span class="line"><span class="string">    width: 100px; </span></span><br><span class="line"><span class="string">    height: 100px;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
 <h3 id="CSS-Grid-网格-布局"><a href="#CSS-Grid-网格-布局" class="headerlink" title="CSS Grid(网格) 布局"></a>CSS Grid(网格) 布局</h3><p>CSS Grid(网格) 布局（又称为 “Grid(网格)” ），是一个二维的基于网格的布局系统它的目标是完全改变我们基于网格的用户界面的布局方式。</p>
 <h2 id="CSS-Grid-网格-布局-1"><a href="#CSS-Grid-网格-布局-1" class="headerlink" title="CSS Grid(网格) 布局"></a>CSS Grid(网格) 布局</h2><p><a href="http://www.css88.com/archives/8506" target="_blank" rel="noopener">5分钟学会 CSS Grid 布局</a><br><a href="http://www.css88.com/archives/8512" target="_blank" rel="noopener">如何使用 CSS Grid 快速而又灵活的布局</a></p>
 <h2 id="Flexbox布局"><a href="#Flexbox布局" class="headerlink" title="Flexbox布局"></a>Flexbox布局</h2><p><a href="http://www.css88.com/archives/7212" target="_blank" rel="noopener">Flexbox布局是如何工作的 – 用大彩图和GIF动画解释</a><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">Flex 布局教程：实例篇</a></p>
@@ -551,7 +556,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -573,7 +578,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -659,7 +664,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共40.8k字</span>
+  <span class="post-count">博客全站共44.7k字</span>
 </div>
 
 
