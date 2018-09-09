@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="基本的格式化语句结尾推荐在语句结尾使用分号 行的长度推荐 80 个字符， 需要手动换行 换行在运算符之后换行， 第二行1个缩进（假定缩进为4个字符） 空行 在方法之间  在方法中的局部变量和第一条语句之间 在多行或者单行注释之前  在方法内的逻辑片段之前插入空行  命名小驼峰式命名（第一个为小写字母） 变量：命名前缀应当是名词： 如123var count = 10;var myName = &quot;L">
+<meta name="description" content="基本的格式化语句结尾推荐在语句结尾使用分号 行的长度推荐 80 个字符， 需要手动换行 换行在运算符之后换行， 第二行1个缩进（假定缩进为4个字符） 空行 在方法之间  在方法中的局部变量和第一条语句之间 在多行或者单行注释之前  在方法内的逻辑片段之前插入空行">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编写可维护的javascript读书笔记">
 <meta property="og:url" content="http://yoursite.com/2018/07/18/编写可维护的javascript读书笔记/index.html">
 <meta property="og:site_name" content="Cnly小姐的博客">
-<meta property="og:description" content="基本的格式化语句结尾推荐在语句结尾使用分号 行的长度推荐 80 个字符， 需要手动换行 换行在运算符之后换行， 第二行1个缩进（假定缩进为4个字符） 空行 在方法之间  在方法中的局部变量和第一条语句之间 在多行或者单行注释之前  在方法内的逻辑片段之前插入空行  命名小驼峰式命名（第一个为小写字母） 变量：命名前缀应当是名词： 如123var count = 10;var myName = &quot;L">
+<meta property="og:description" content="基本的格式化语句结尾推荐在语句结尾使用分号 行的长度推荐 80 个字符， 需要手动换行 换行在运算符之后换行， 第二行1个缩进（假定缩进为4个字符） 空行 在方法之间  在方法中的局部变量和第一条语句之间 在多行或者单行注释之前  在方法内的逻辑片段之前插入空行">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-20T09:40:42.041Z">
+<meta property="og:updated_time" content="2018-07-26T10:32:24.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编写可维护的javascript读书笔记">
-<meta name="twitter:description" content="基本的格式化语句结尾推荐在语句结尾使用分号 行的长度推荐 80 个字符， 需要手动换行 换行在运算符之后换行， 第二行1个缩进（假定缩进为4个字符） 空行 在方法之间  在方法中的局部变量和第一条语句之间 在多行或者单行注释之前  在方法内的逻辑片段之前插入空行  命名小驼峰式命名（第一个为小写字母） 变量：命名前缀应当是名词： 如123var count = 10;var myName = &quot;L">
+<meta name="twitter:description" content="基本的格式化语句结尾推荐在语句结尾使用分号 行的长度推荐 80 个字符， 需要手动换行 换行在运算符之后换行， 第二行1个缩进（假定缩进为4个字符） 空行 在方法之间  在方法中的局部变量和第一条语句之间 在多行或者单行注释之前  在方法内的逻辑片段之前插入空行">
 
 
 
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,230
+                  2,246
                 </span>
               
 
@@ -412,13 +412,14 @@
 <li>在方法之间 </li>
 <li>在方法中的局部变量和第一条语句之间</li>
 <li>在多行或者单行注释之前 </li>
-<li>在方法内的逻辑片段之前插入空行</li>
+<li>在方法内的逻辑片段之前插入空行<a id="more"></a>
+</li>
 </ol>
 <h3 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h3><p>小驼峰式命名（第一个为小写字母）</p>
 <p>变量：命名前缀应当是名词： 如<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var count = 10;</span><br><span class="line">var myName = <span class="string">"Lily"</span>;</span><br><span class="line">var found = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure></p>
 <p>函数：命名前缀应当是动词<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> getName (myName) &#123;</span><br><span class="line">    <span class="built_in">return</span> myName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>常量：使用大写字母和下划线来命名，下划线用来分割单词<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var MAX_COUNT = 10;</span><br></pre></td></tr></table></figure></p>
-<p>构造函数： 大驼峰式命名， 第一个字母为大写<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Person (name) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    alert(this.name)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var me = new Person (<span class="string">"Lily"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>构造函数： 大驼峰式命名， 第一个字母为大写<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Person (name) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    alert(this.name)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var me = new Person (<span class="string">"Lily"</span>);</span><br></pre></td></tr></table></figure></p>
 <h3 id="直接量"><a href="#直接量" class="headerlink" title="直接量"></a>直接量</h3><p>javascript 中包含一些类型的原始值：字符串，数字，布尔值，null和undefined,以及对象直接量和数组直接量 </p>
 <p>字符串：推荐双引号包裹，多行字符串连接使用+<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var longString = <span class="string">"Here is the story, of a man "</span> +  </span><br><span class="line">                 <span class="string">"named Brady."</span>;</span><br></pre></td></tr></table></figure></p>
 <p>数字：小数不能省略整数部分<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var count = 10;</span><br><span class="line">var price = 10.00;</span><br></pre></td></tr></table></figure></p>
@@ -451,9 +452,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (condition) &#123;</span><br><span class="line">    doSomething();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    doSomethingElse();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="switch-语句"><a href="#switch-语句" class="headerlink" title="switch 语句"></a>switch 语句</h3><p>在没有默认行为且写了注释的情况下省略default</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">switch(condition) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"fisrt"</span>: </span><br><span class="line">        // 代码</span><br><span class="line">        <span class="built_in">break</span>; </span><br><span class="line">    <span class="keyword">case</span> <span class="string">"second"</span>: </span><br><span class="line">        // 代码</span><br><span class="line">        <span class="built_in">break</span>;</span><br><span class="line"></span><br><span class="line">    // 没有 default</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var values = [ 1, 2, 3, 4, 5 ], </span><br><span class="line">    i,len; </span><br><span class="line"><span class="keyword">for</span> (i=0, len=values.length; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i != 2) &#123;</span><br><span class="line">        process(values[i]); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h3><p>避免使用continue （跳过本次迭代）<br>break 跳出循环</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var values = [ 1, 2, 3, 4, 5 ], </span><br><span class="line">    i,len; </span><br><span class="line"><span class="keyword">for</span> (i = 0, len = values.length; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i != 2) &#123;</span><br><span class="line">        process(values[i]); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="变量、函数和运算符"><a href="#变量、函数和运算符" class="headerlink" title="变量、函数和运算符"></a>变量、函数和运算符</h2><h3 id="变量申明"><a href="#变量申明" class="headerlink" title="变量申明"></a>变量申明</h3><p>将所有的var语句合并为一个语句，每个变量的初始化独占一行。没有初始值得变量应该在尾部。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> doSomethingWidthItems (items) &#123;</span><br><span class="line">    var value = 10,</span><br><span class="line">        result = value + 10, </span><br><span class="line">        i, </span><br><span class="line">        len;</span><br><span class="line"></span><br><span class="line">    // 函数申明也应该在该函数调用前面</span><br><span class="line">    <span class="keyword">function</span> doSomething(item) &#123;</span><br><span class="line">        // 代码逻辑</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i=0; len=items.length; i &lt; len; i++) &#123;</span><br><span class="line">        doSomething(items[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> doSomethingWidthItems (items) &#123;</span><br><span class="line">    var value = 10,</span><br><span class="line">        result = value + 10, </span><br><span class="line">        i, </span><br><span class="line">        len;</span><br><span class="line"></span><br><span class="line">    // 函数申明也应该在该函数调用前面</span><br><span class="line">    <span class="keyword">function</span> doSomething (item) &#123;</span><br><span class="line">        // 代码逻辑</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = 0; len = items.length; i &lt; len; i++) &#123;</span><br><span class="line">        doSomething(items[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="函数申明"><a href="#函数申明" class="headerlink" title="函数申明"></a>函数申明</h3><p>函数申明不应当在语句块之内</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 不好的写法</span><br><span class="line"><span class="keyword">if</span> (condition) &#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">doSomething</span></span>() &#123;</span><br><span class="line">        alert(<span class="string">"Hi!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">doSomething</span></span>() &#123;</span><br><span class="line">        alert(<span class="string">"Yo!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>立即调用的函数 </p>
@@ -567,6 +569,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/07/21/HTML5-权威指南读书笔记/" rel="prev" title="HTML5 权威指南读书笔记（一）">
+                HTML5 权威指南读书笔记（一） <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -642,7 +648,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -750,7 +756,7 @@
 <div class="theme-info">
   <div class="powered-by"></div>
   <i class="fa fa-pencil"></i>
-  <span class="post-count">博客全站共44.7k字</span>
+  <span class="post-count">博客全站共45.9k字</span>
 </div>
 
 
